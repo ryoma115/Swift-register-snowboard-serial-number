@@ -35,6 +35,10 @@
 * Xcode(13.2.1)
 * DB(Firebaseのfirestore)
 * [github](https://github.com/ryoma115/Swift-register-snowboard-serial-number)
+
+# 注意点
+* GIDSignIn.sharedInstance()?.を入力時、GoogleSignInのバージョンが5.0.1以下の場合エラー表示になる場合があった
+解決方法　pod install時　バージョン５以上を指定する(pod 'GoogleSignIn', '~> 5.0')
 # 今後行いたいこと
 
 # 自己紹介

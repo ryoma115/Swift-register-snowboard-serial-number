@@ -8,10 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		394D2496AF9A6FCC5A534C0F /* Pods_register_snowboard_serial_number.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF1D543B1FC162AE38C3C57C /* Pods_register_snowboard_serial_number.framework */; };
+		5E23CEB8278C353D00C39D4B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E23CEB7278C353D00C39D4B /* LoginViewController.swift */; };
+		5E23CEBA278C477A00C39D4B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E23CEB9278C477A00C39D4B /* Main.storyboard */; };
+		5E23CEBC278C492100C39D4B /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E23CEBB278C492100C39D4B /* SearchViewController.swift */; };
+		5E23CEBE278C496A00C39D4B /* MyListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E23CEBD278C496A00C39D4B /* MyListViewController.swift */; };
+		5E23CEC0278C4A9700C39D4B /* RegisterBoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E23CEBF278C4A9700C39D4B /* RegisterBoardViewController.swift */; };
 		5E412D492789E7AB002163D5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E412D482789E7AB002163D5 /* AppDelegate.swift */; };
 		5E412D4B2789E7AB002163D5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E412D4A2789E7AB002163D5 /* SceneDelegate.swift */; };
-		5E412D4D2789E7AB002163D5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E412D4C2789E7AB002163D5 /* ViewController.swift */; };
-		5E412D502789E7AB002163D5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E412D4E2789E7AB002163D5 /* Main.storyboard */; };
 		5E412D522789E7AD002163D5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5E412D512789E7AD002163D5 /* Assets.xcassets */; };
 		5E412D552789E7AD002163D5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E412D532789E7AD002163D5 /* LaunchScreen.storyboard */; };
 		5ED4E33B278BCF93003ED53F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5ED4E33A278BCF93003ED53F /* GoogleService-Info.plist */; };
@@ -19,11 +22,14 @@
 
 /* Begin PBXFileReference section */
 		02378DF0CD104641EBDCF0BE /* Pods-register-snowboard-serial-number.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-register-snowboard-serial-number.debug.xcconfig"; path = "Target Support Files/Pods-register-snowboard-serial-number/Pods-register-snowboard-serial-number.debug.xcconfig"; sourceTree = "<group>"; };
+		5E23CEB7278C353D00C39D4B /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		5E23CEB9278C477A00C39D4B /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		5E23CEBB278C492100C39D4B /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		5E23CEBD278C496A00C39D4B /* MyListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyListViewController.swift; sourceTree = "<group>"; };
+		5E23CEBF278C4A9700C39D4B /* RegisterBoardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterBoardViewController.swift; sourceTree = "<group>"; };
 		5E412D452789E7AB002163D5 /* register-snowboard-serial-number.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "register-snowboard-serial-number.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E412D482789E7AB002163D5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5E412D4A2789E7AB002163D5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		5E412D4C2789E7AB002163D5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		5E412D4F2789E7AB002163D5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5E412D512789E7AD002163D5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5E412D542789E7AD002163D5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5E412D562789E7AD002163D5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -129,7 +135,7 @@
 		5ED4E338278BCAC7003ED53F /* View */ = {
 			isa = PBXGroup;
 			children = (
-				5E412D4E2789E7AB002163D5 /* Main.storyboard */,
+				5E23CEB9278C477A00C39D4B /* Main.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -137,7 +143,10 @@
 		5ED4E339278BCAE7003ED53F /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				5E412D4C2789E7AB002163D5 /* ViewController.swift */,
+				5E23CEB7278C353D00C39D4B /* LoginViewController.swift */,
+				5E23CEBB278C492100C39D4B /* SearchViewController.swift */,
+				5E23CEBD278C496A00C39D4B /* MyListViewController.swift */,
+				5E23CEBF278C4A9700C39D4B /* RegisterBoardViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -154,6 +163,7 @@
 				5E412D422789E7AB002163D5 /* Frameworks */,
 				5E412D432789E7AB002163D5 /* Resources */,
 				9E5DCCF64E3EBEFECDD28FA4 /* [CP] Embed Pods Frameworks */,
+				112958C8F68A0CFEFEA1EA4A /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -205,13 +215,30 @@
 				5E412D552789E7AD002163D5 /* LaunchScreen.storyboard in Resources */,
 				5ED4E33B278BCF93003ED53F /* GoogleService-Info.plist in Resources */,
 				5E412D522789E7AD002163D5 /* Assets.xcassets in Resources */,
-				5E412D502789E7AB002163D5 /* Main.storyboard in Resources */,
+				5E23CEBA278C477A00C39D4B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		112958C8F68A0CFEFEA1EA4A /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-register-snowboard-serial-number/Pods-register-snowboard-serial-number-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-register-snowboard-serial-number/Pods-register-snowboard-serial-number-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-register-snowboard-serial-number/Pods-register-snowboard-serial-number-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		9E5DCCF64E3EBEFECDD28FA4 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -258,8 +285,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5E412D4D2789E7AB002163D5 /* ViewController.swift in Sources */,
+				5E23CEC0278C4A9700C39D4B /* RegisterBoardViewController.swift in Sources */,
+				5E23CEB8278C353D00C39D4B /* LoginViewController.swift in Sources */,
 				5E412D492789E7AB002163D5 /* AppDelegate.swift in Sources */,
+				5E23CEBE278C496A00C39D4B /* MyListViewController.swift in Sources */,
+				5E23CEBC278C492100C39D4B /* SearchViewController.swift in Sources */,
 				5E412D4B2789E7AB002163D5 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -267,14 +297,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		5E412D4E2789E7AB002163D5 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				5E412D4F2789E7AB002163D5 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		5E412D532789E7AD002163D5 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
