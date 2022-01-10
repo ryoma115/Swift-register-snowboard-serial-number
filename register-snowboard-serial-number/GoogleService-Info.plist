@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>528728576677-8vs23kk12aja9ptu40da6gr6e54ph41e.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.528728576677-8vs23kk12aja9ptu40da6gr6e54ph41e</string>
+	<key>API_KEY</key>
+	<string>AIzaSyAt19xUVLIXQLMtxXkB_yRJ-GHp_TZdQqo</string>
+	<key>GCM_SENDER_ID</key>
+	<string>528728576677</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.ryoma2022.register-snowboard-serial-number</string>
+	<key>PROJECT_ID</key>
+	<string>register-snowboard</string>
+	<key>STORAGE_BUCKET</key>
+	<string>register-snowboard.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:528728576677:ios:39eee207cd6650eb2e334c</string>
+</dict>
+</plist>

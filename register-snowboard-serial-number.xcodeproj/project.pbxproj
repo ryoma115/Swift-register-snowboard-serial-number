@@ -7,15 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		394D2496AF9A6FCC5A534C0F /* Pods_register_snowboard_serial_number.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF1D543B1FC162AE38C3C57C /* Pods_register_snowboard_serial_number.framework */; };
 		5E412D492789E7AB002163D5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E412D482789E7AB002163D5 /* AppDelegate.swift */; };
 		5E412D4B2789E7AB002163D5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E412D4A2789E7AB002163D5 /* SceneDelegate.swift */; };
 		5E412D4D2789E7AB002163D5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E412D4C2789E7AB002163D5 /* ViewController.swift */; };
 		5E412D502789E7AB002163D5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E412D4E2789E7AB002163D5 /* Main.storyboard */; };
 		5E412D522789E7AD002163D5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5E412D512789E7AD002163D5 /* Assets.xcassets */; };
 		5E412D552789E7AD002163D5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E412D532789E7AD002163D5 /* LaunchScreen.storyboard */; };
+		5ED4E33B278BCF93003ED53F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5ED4E33A278BCF93003ED53F /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		02378DF0CD104641EBDCF0BE /* Pods-register-snowboard-serial-number.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-register-snowboard-serial-number.debug.xcconfig"; path = "Target Support Files/Pods-register-snowboard-serial-number/Pods-register-snowboard-serial-number.debug.xcconfig"; sourceTree = "<group>"; };
 		5E412D452789E7AB002163D5 /* register-snowboard-serial-number.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "register-snowboard-serial-number.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E412D482789E7AB002163D5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5E412D4A2789E7AB002163D5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -24,6 +27,9 @@
 		5E412D512789E7AD002163D5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5E412D542789E7AD002163D5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5E412D562789E7AD002163D5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5ED4E33A278BCF93003ED53F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		A0339C4A43EFCB54F1EFE3BE /* Pods-register-snowboard-serial-number.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-register-snowboard-serial-number.release.xcconfig"; path = "Target Support Files/Pods-register-snowboard-serial-number/Pods-register-snowboard-serial-number.release.xcconfig"; sourceTree = "<group>"; };
+		CF1D543B1FC162AE38C3C57C /* Pods_register_snowboard_serial_number.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_register_snowboard_serial_number.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +37,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				394D2496AF9A6FCC5A534C0F /* Pods_register_snowboard_serial_number.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		086C51D2C7D5339785F878CE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CF1D543B1FC162AE38C3C57C /* Pods_register_snowboard_serial_number.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		5E412D3C2789E7AB002163D5 = {
 			isa = PBXGroup;
 			children = (
 				5E412D472789E7AB002163D5 /* register-snowboard-serial-number */,
 				5E412D462789E7AB002163D5 /* Products */,
+				5E74473301FDCC34EC6D71D5 /* Pods */,
+				086C51D2C7D5339785F878CE /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,6 +73,7 @@
 		5E412D472789E7AB002163D5 /* register-snowboard-serial-number */ = {
 			isa = PBXGroup;
 			children = (
+				5ED4E33A278BCF93003ED53F /* GoogleService-Info.plist */,
 				5ED4E333278BC8AD003ED53F /*  Delegate */,
 				5ED4E334278BC998003ED53F /* Support */,
 				5ED4E337278BCABE003ED53F /* Model */,
@@ -63,6 +81,15 @@
 				5ED4E339278BCAE7003ED53F /* Controller */,
 			);
 			path = "register-snowboard-serial-number";
+			sourceTree = "<group>";
+		};
+		5E74473301FDCC34EC6D71D5 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				02378DF0CD104641EBDCF0BE /* Pods-register-snowboard-serial-number.debug.xcconfig */,
+				A0339C4A43EFCB54F1EFE3BE /* Pods-register-snowboard-serial-number.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 		5ED4E333278BC8AD003ED53F /*  Delegate */ = {
@@ -122,9 +149,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5E412D592789E7AD002163D5 /* Build configuration list for PBXNativeTarget "register-snowboard-serial-number" */;
 			buildPhases = (
+				E9F6E1AA69B2343D9D5486C2 /* [CP] Check Pods Manifest.lock */,
 				5E412D412789E7AB002163D5 /* Sources */,
 				5E412D422789E7AB002163D5 /* Frameworks */,
 				5E412D432789E7AB002163D5 /* Resources */,
+				9E5DCCF64E3EBEFECDD28FA4 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -174,12 +203,55 @@
 			buildActionMask = 2147483647;
 			files = (
 				5E412D552789E7AD002163D5 /* LaunchScreen.storyboard in Resources */,
+				5ED4E33B278BCF93003ED53F /* GoogleService-Info.plist in Resources */,
 				5E412D522789E7AD002163D5 /* Assets.xcassets in Resources */,
 				5E412D502789E7AB002163D5 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		9E5DCCF64E3EBEFECDD28FA4 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-register-snowboard-serial-number/Pods-register-snowboard-serial-number-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-register-snowboard-serial-number/Pods-register-snowboard-serial-number-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-register-snowboard-serial-number/Pods-register-snowboard-serial-number-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E9F6E1AA69B2343D9D5486C2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-register-snowboard-serial-number-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		5E412D412789E7AB002163D5 /* Sources */ = {
@@ -332,6 +404,7 @@
 		};
 		5E412D5A2789E7AD002163D5 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 02378DF0CD104641EBDCF0BE /* Pods-register-snowboard-serial-number.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -361,6 +434,7 @@
 		};
 		5E412D5B2789E7AD002163D5 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A0339C4A43EFCB54F1EFE3BE /* Pods-register-snowboard-serial-number.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
