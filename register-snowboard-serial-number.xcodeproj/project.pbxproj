@@ -56,15 +56,63 @@
 		5E412D472789E7AB002163D5 /* register-snowboard-serial-number */ = {
 			isa = PBXGroup;
 			children = (
-				5E412D482789E7AB002163D5 /* AppDelegate.swift */,
-				5E412D4A2789E7AB002163D5 /* SceneDelegate.swift */,
-				5E412D4C2789E7AB002163D5 /* ViewController.swift */,
-				5E412D4E2789E7AB002163D5 /* Main.storyboard */,
-				5E412D512789E7AD002163D5 /* Assets.xcassets */,
-				5E412D532789E7AD002163D5 /* LaunchScreen.storyboard */,
-				5E412D562789E7AD002163D5 /* Info.plist */,
+				5ED4E333278BC8AD003ED53F /*  Delegate */,
+				5ED4E334278BC998003ED53F /* Support */,
+				5ED4E337278BCABE003ED53F /* Model */,
+				5ED4E338278BCAC7003ED53F /* View */,
+				5ED4E339278BCAE7003ED53F /* Controller */,
 			);
 			path = "register-snowboard-serial-number";
+			sourceTree = "<group>";
+		};
+		5ED4E333278BC8AD003ED53F /*  Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				5E412D4A2789E7AB002163D5 /* SceneDelegate.swift */,
+				5E412D482789E7AB002163D5 /* AppDelegate.swift */,
+			);
+			path = " Delegate";
+			sourceTree = "<group>";
+		};
+		5ED4E334278BC998003ED53F /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				5E412D512789E7AD002163D5 /* Assets.xcassets */,
+				5ED4E335278BC9BB003ED53F /* Launch */,
+				5E412D562789E7AD002163D5 /* Info.plist */,
+			);
+			path = Support;
+			sourceTree = "<group>";
+		};
+		5ED4E335278BC9BB003ED53F /* Launch */ = {
+			isa = PBXGroup;
+			children = (
+				5E412D532789E7AD002163D5 /* LaunchScreen.storyboard */,
+			);
+			path = Launch;
+			sourceTree = "<group>";
+		};
+		5ED4E337278BCABE003ED53F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		5ED4E338278BCAC7003ED53F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5E412D4E2789E7AB002163D5 /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		5ED4E339278BCAE7003ED53F /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				5E412D4C2789E7AB002163D5 /* ViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -291,7 +339,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = URHQSU336Y;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "register-snowboard-serial-number/Info.plist";
+				INFOPLIST_FILE = "register-snowboard-serial-number/Support/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -320,7 +368,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = URHQSU336Y;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "register-snowboard-serial-number/Info.plist";
+				INFOPLIST_FILE = "register-snowboard-serial-number/Support/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
