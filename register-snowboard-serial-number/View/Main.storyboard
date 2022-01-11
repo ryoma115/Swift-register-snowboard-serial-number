@@ -17,23 +17,23 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wta-bh-2os">
-                                <rect key="frame" x="77" y="418" width="260" height="60"/>
+                                <rect key="frame" x="32" y="432.5" width="350" height="31"/>
                                 <color key="backgroundColor" red="0.8666666666666667" green="0.31764705882352939" blue="0.26666666666666666" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title=" Google でログイン"/>
                                 <connections>
-                                    <action selector="testButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="T5z-JB-QEn"/>
+                                    <action selector="googleSignInButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vkE-8S-HiA"/>
                                 </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="Wta-bh-2os" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="77" id="9tv-98-cYH"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Wta-bh-2os" secondAttribute="trailing" constant="77" id="Lbh-9F-urc"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Wta-bh-2os" secondAttribute="bottom" constant="384" id="NEi-xU-8JA"/>
-                            <constraint firstItem="Wta-bh-2os" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="330" id="qgt-2w-GWr"/>
+                            <constraint firstItem="Wta-bh-2os" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="KCE-f7-rSp"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Wta-bh-2os" secondAttribute="trailing" constant="32" id="Qqo-Q1-B6w"/>
+                            <constraint firstItem="Wta-bh-2os" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ZWw-VV-dvN"/>
+                            <constraint firstItem="Wta-bh-2os" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="32" id="yv1-eO-9Z4"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="SYg-8f-6sx"/>
@@ -58,7 +58,7 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="73e-O6-lyd">
-                                <rect key="frame" x="330" y="734" width="60" height="60"/>
+                                <rect key="frame" x="180" y="484" width="60" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Button"/>
@@ -76,7 +76,7 @@
                             <constraint firstItem="ZwU-cn-vbJ" firstAttribute="leading" secondItem="Qf9-fs-rlf" secondAttribute="leading" id="hAZ-48-rNe"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="my board" id="yTS-6H-H2d"/>
+                    <tabBarItem key="tabBarItem" title="my board" selectedImage="person.circle" catalog="system" id="yTS-6H-H2d"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XGP-mk-Opx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -90,22 +90,51 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="マイボード登録画面" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EyQ-QP-Yn3">
-                                <rect key="frame" x="47" y="301" width="347" height="79"/>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="メーカーを入力してください" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IQg-i8-q3n">
+                                <rect key="frame" x="57" y="484" width="300" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="36"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="シリアルナンバーを入力してください" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jjY-Zn-rkl">
+                                <rect key="frame" x="57" y="574" width="300" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q5h-Ky-z9v">
+                                <rect key="frame" x="132" y="691" width="150" height="60"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="linkColor"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="登録"/>
+                            </button>
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oJz-7I-CtH">
+                                <rect key="frame" x="57" y="113" width="300" height="300"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="MLK-cK-alj" appends="YES" id="Z4F-eS-MP9"/>
+                                </connections>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="glZ-5p-L0R"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="lx9-k8-Xnp"/>
+                    <connections>
+                        <outlet property="boardImage" destination="oJz-7I-CtH" id="hUa-Nu-XbR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mOX-us-kjb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="MLK-cK-alj">
+                    <connections>
+                        <action selector="tapImageView:" destination="uui-Xt-uad" id="IKM-gA-JAk"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1521.7391304347827" y="352.90178571428572"/>
+            <point key="canvasLocation" x="1498.5507246376812" y="352.90178571428572"/>
         </scene>
         <!--search-->
         <scene sceneID="5Qm-1Z-4XN">
@@ -136,7 +165,7 @@
                         <viewLayoutGuide key="safeArea" id="Cok-n0-fLX"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="search" id="p7M-Bx-1GF"/>
+                    <tabBarItem key="tabBarItem" title="search" selectedImage="magnifyingglass" catalog="system" id="p7M-Bx-1GF"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BKs-Te-qmG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -181,6 +210,11 @@
         </scene>
     </scenes>
     <resources>
+        <image name="magnifyingglass" catalog="system" width="128" height="115"/>
+        <image name="person.circle" catalog="system" width="128" height="121"/>
+        <systemColor name="linkColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
