@@ -109,6 +109,9 @@
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="登録"/>
+                                <connections>
+                                    <action selector="tapRegisterButton:" destination="uui-Xt-uad" eventType="touchUpInside" id="vY7-Rb-qFl"/>
+                                </connections>
                             </button>
                             <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oJz-7I-CtH">
                                 <rect key="frame" x="57" y="113" width="300" height="300"/>
@@ -124,6 +127,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="lx9-k8-Xnp"/>
                     <connections>
+                        <outlet property="SerialNumberTextField" destination="jjY-Zn-rkl" id="2IO-Ap-g5N"/>
+                        <outlet property="boadBrandTextField" destination="IQg-i8-q3n" id="DsV-b0-HSd"/>
                         <outlet property="boardImage" destination="oJz-7I-CtH" id="hUa-Nu-XbR"/>
                     </connections>
                 </viewController>

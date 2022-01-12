@@ -30,6 +30,7 @@
 
 
 # 特に力を入れた点
+(参考サイト)[https://qiita.com/bebeji_nappa/items/eaf6ac1723bbe4bb4e91]
 
 # 使用技術・環境
 * Xcode(13.2.1)
@@ -39,6 +40,8 @@
 # 注意点
 * GIDSignIn.sharedInstance()?.を入力時、GoogleSignInのバージョンが5.0.1以下の場合エラー表示になる場合があった
 解決方法　pod install時　バージョン５以上を指定する(pod 'GoogleSignIn', '~> 5.0')
+* UIButtonを用い写真の設定画面を実装しようとしたが、imagePickerControllerからのUIButton.imageView.imageで変更を試みたがうまく反映されなかった
+解決方法　UIImageにtapViewを用いて、imagePickerControllerでUIimage.imageで実装できた。
 # 今後行いたいこと
 
 # 自己紹介

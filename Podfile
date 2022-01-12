@@ -9,8 +9,11 @@ target 'register-snowboard-serial-number' do
 
 
   # Pods for register-snowboard-serial-number
-pod 'Firebase'
-pod 'Firebase/Auth'
-pod 'GoogleSignIn', '~> 5.0'
+  pod 'Firebase'
+  pod 'Firebase/Auth'
+  pod 'Firebase/Storage'
+  pod 'Firebase/Firestore'
+  pod 'SDWebImage', '~> 5.0'
+  pod 'GoogleSignIn', '~> 5.0'
 
 end

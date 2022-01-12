@@ -6,12 +6,15 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class RegisterBoardViewController: UIViewController {
     
     let photoCheckModel = PhotoCheckModel()
     
     @IBOutlet weak var boardImage: UIImageView!
+    @IBOutlet weak var boadBrandTextField: UITextField!
+    @IBOutlet weak var SerialNumberTextField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +27,16 @@ class RegisterBoardViewController: UIViewController {
     }
     @IBAction func tapImageView(_ sender: Any) {
         showAlert()
+    }
+    @IBAction func tapRegisterButton(_ sender: Any) {
+        let boardImageData = (boardImage.image?.jpegData(compressionQuality: 0.25))
+        let sendDBModel = SendDBModel(userID:Auth.auth().currentUser!.uid, userEmail: (Auth.auth().currentUser?.email)!, boardBrand:boadBrandTextField.text!, boardSerialNumber: SerialNumberTextField.text!, boaedImage:boardImageData!)
+        sendDBModel.sendDB()
+        boardImage.image = UIImage(named:"no-image")
+        boadBrandTextField.text = ""
+        SerialNumberTextField.text = ""
+        self.navigationController?.popViewController(animated: true)
+    
     }
     func showAlert(){
         let alertController = UIAlertController(title: "選択", message: "どちらを使用しますか?", preferredStyle: .actionSheet)
@@ -43,6 +56,7 @@ class RegisterBoardViewController: UIViewController {
         if UIImagePickerController.isSourceTypeAvailable(.camera){
             let imagePickerView = UIImagePickerController()
             imagePickerView.sourceType = .camera
+            imagePickerView.isEditing = true
             imagePickerView.delegate = self
             self.present(imagePickerView, animated: true)
         }
@@ -51,6 +65,7 @@ class RegisterBoardViewController: UIViewController {
         if UIImagePickerController.isSourceTypeAvailable(.photoLibrary){
             let imagePickerView = UIImagePickerController()
             imagePickerView.sourceType = .photoLibrary
+            imagePickerView.isEditing = true
             imagePickerView.delegate = self
             self.present(imagePickerView, animated: true)
         }
