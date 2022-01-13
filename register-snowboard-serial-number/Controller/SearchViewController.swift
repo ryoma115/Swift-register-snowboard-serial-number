@@ -6,11 +6,14 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class SearchViewController: UIViewController {
+    let loadTest = LoadDBModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        loadTest.loadUserData(searchEmail: (Auth.auth().currentUser?.email)!)
     }
     
     override func viewWillAppear(_ animated: Bool) {

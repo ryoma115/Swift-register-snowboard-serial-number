@@ -42,6 +42,8 @@
 解決方法　pod install時　バージョン５以上を指定する(pod 'GoogleSignIn', '~> 5.0')
 * UIButtonを用い写真の設定画面を実装しようとしたが、imagePickerControllerからのUIButton.imageView.imageで変更を試みたがうまく反映されなかった
 解決方法　UIImageにtapViewを用いて、imagePickerControllerでUIimage.imageで実装できた。
+* .getDocumentsおよび.addSnapshotListener使用する際、whereFieldとorderByを併用し用途するとデータ所得ができなくなるバグ？使用？があった
+そのため、データ所得が新たに制約で並べ直す必要があった
 # 今後行いたいこと
 
 # 自己紹介

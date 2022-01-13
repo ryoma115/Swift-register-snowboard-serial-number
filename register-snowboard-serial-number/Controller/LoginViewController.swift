@@ -9,8 +9,7 @@ import UIKit
 import GoogleSignIn
 import FirebaseAuth
 
-class LoginViewController: UIViewController {
-    
+class LoginViewController: UIViewController {    
     override func viewDidLoad() {
         super.viewDidLoad()
         GIDSignIn.sharedInstance()?.presentingViewController = self

@@ -11,7 +11,7 @@ import FirebaseAuth
 class RegisterBoardViewController: UIViewController {
     
     let photoCheckModel = PhotoCheckModel()
-    
+
     @IBOutlet weak var boardImage: UIImageView!
     @IBOutlet weak var boadBrandTextField: UITextField!
     @IBOutlet weak var SerialNumberTextField: UITextField!
@@ -20,6 +20,8 @@ class RegisterBoardViewController: UIViewController {
         super.viewDidLoad()
         boardImage.image = UIImage(named: "no-image")
         photoCheckModel.showCheckPermission()
+        boadBrandTextField.delegate = self
+        SerialNumberTextField.delegate = self
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -35,8 +37,12 @@ class RegisterBoardViewController: UIViewController {
         boardImage.image = UIImage(named:"no-image")
         boadBrandTextField.text = ""
         SerialNumberTextField.text = ""
+        SerialNumberTextField.endEditing(true)
         self.navigationController?.popViewController(animated: true)
     
+    }
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
     }
     func showAlert(){
         let alertController = UIAlertController(title: "選択", message: "どちらを使用しますか?", preferredStyle: .actionSheet)
@@ -82,4 +88,12 @@ extension RegisterBoardViewController: UIImagePickerControllerDelegate,UINavigat
         self.dismiss(animated: true)
     }
     
+}
+
+extension RegisterBoardViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        boadBrandTextField.resignFirstResponder()
+        SerialNumberTextField.resignFirstResponder()
+        return true
+    }
 }
