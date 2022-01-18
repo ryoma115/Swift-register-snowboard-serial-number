@@ -44,7 +44,6 @@ extension LoginViewController: GIDSignInDelegate{
             } else {
                 let tabBarContoroller = self.storyboard?.instantiateViewController(withIdentifier: "tabBarController") as! UITabBarController
                 self.navigationController?.pushViewController(tabBarContoroller, animated: true)
-                print(Auth.auth().currentUser?.email)
                 print("Google SignIn Success!")
             }
         }

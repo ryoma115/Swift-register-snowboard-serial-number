@@ -11,6 +11,7 @@ import FirebaseFirestore
 
 class SendDBModel{
     
+    var fullName = String()
     var userID = String()
     var userEmail = String()
     var boardBrand = String()
@@ -18,7 +19,8 @@ class SendDBModel{
     var boardImage = Data()
     let db = Firestore.firestore()
 
-    init(userID:String,userEmail:String,boardBrand:String,boardSerialNumber:String,boaedImage:Data) {
+    init(fullName:String,userID:String,userEmail:String,boardBrand:String,boardSerialNumber:String,boaedImage:Data) {
+        self.fullName = fullName
         self.userID = userID
         self.userEmail = userEmail
         self.boardBrand = boardBrand
@@ -41,7 +43,7 @@ class SendDBModel{
                 if error != nil{
                     print("SendDBModel downloadURL error")
                 }
-                self.db.collection("snowboards").document().setData(["userID":self.userID as Any,"userEmail":self.userEmail as Any,"boardBrand":self.boardBrand as Any,"boardSerialNumber":self.boardSerialNumber as Any,"boardImageUrl":url?.absoluteString as Any,"postDate":Date().timeIntervalSince1970 as Any])
+                self.db.collection("snowboards").document().setData(["fullName":fullName,"userID":self.userID as Any,"userEmail":self.userEmail as Any,"boardBrand":self.boardBrand as Any,"boardSerialNumber":self.boardSerialNumber as Any,"boardImageUrl":url?.absoluteString as Any,"postDate":Date().timeIntervalSince1970 as Any])
                 
             }
         }

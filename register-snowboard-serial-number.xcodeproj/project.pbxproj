@@ -21,6 +21,8 @@
 		5E6E5054278E693700B45D81 /* SendDBModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E6E5053278E693700B45D81 /* SendDBModel.swift */; };
 		5E971860278FE6490080A5AA /* LoadDBModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E97185F278FE6490080A5AA /* LoadDBModel.swift */; };
 		5E971862278FF24E0080A5AA /* acceptDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E971861278FF24E0080A5AA /* acceptDataModel.swift */; };
+		5E9718652790FDC60080A5AA /* MyListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9718632790FDC60080A5AA /* MyListTableViewCell.swift */; };
+		5E9718662790FDC60080A5AA /* MyListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E9718642790FDC60080A5AA /* MyListTableViewCell.xib */; };
 		5ED4E33B278BCF93003ED53F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5ED4E33A278BCF93003ED53F /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
@@ -41,6 +43,8 @@
 		5E6E5053278E693700B45D81 /* SendDBModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendDBModel.swift; sourceTree = "<group>"; };
 		5E97185F278FE6490080A5AA /* LoadDBModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadDBModel.swift; sourceTree = "<group>"; };
 		5E971861278FF24E0080A5AA /* acceptDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = acceptDataModel.swift; sourceTree = "<group>"; };
+		5E9718632790FDC60080A5AA /* MyListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyListTableViewCell.swift; sourceTree = "<group>"; };
+		5E9718642790FDC60080A5AA /* MyListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyListTableViewCell.xib; sourceTree = "<group>"; };
 		5ED4E33A278BCF93003ED53F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A0339C4A43EFCB54F1EFE3BE /* Pods-register-snowboard-serial-number.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-register-snowboard-serial-number.release.xcconfig"; path = "Target Support Files/Pods-register-snowboard-serial-number/Pods-register-snowboard-serial-number.release.xcconfig"; sourceTree = "<group>"; };
 		CF1D543B1FC162AE38C3C57C /* Pods_register_snowboard_serial_number.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_register_snowboard_serial_number.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -148,6 +152,8 @@
 			isa = PBXGroup;
 			children = (
 				5E23CEB9278C477A00C39D4B /* Main.storyboard */,
+				5E9718632790FDC60080A5AA /* MyListTableViewCell.swift */,
+				5E9718642790FDC60080A5AA /* MyListTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -224,6 +230,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5E9718662790FDC60080A5AA /* MyListTableViewCell.xib in Resources */,
 				5E412D552789E7AD002163D5 /* LaunchScreen.storyboard in Resources */,
 				5ED4E33B278BCF93003ED53F /* GoogleService-Info.plist in Resources */,
 				5E412D522789E7AD002163D5 /* Assets.xcassets in Resources */,
@@ -297,6 +304,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5E9718652790FDC60080A5AA /* MyListTableViewCell.swift in Sources */,
 				5E23CEC0278C4A9700C39D4B /* RegisterBoardViewController.swift in Sources */,
 				5E23CEC4278D829500C39D4B /* photoCheckModel.swift in Sources */,
 				5E23CEB8278C353D00C39D4B /* LoginViewController.swift in Sources */,

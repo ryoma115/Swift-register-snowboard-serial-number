@@ -13,6 +13,7 @@ class RegisterBoardViewController: UIViewController {
     let photoCheckModel = PhotoCheckModel()
 
     @IBOutlet weak var boardImage: UIImageView!
+    @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var boadBrandTextField: UITextField!
     @IBOutlet weak var SerialNumberTextField: UITextField!
     
@@ -32,14 +33,13 @@ class RegisterBoardViewController: UIViewController {
     }
     @IBAction func tapRegisterButton(_ sender: Any) {
         let boardImageData = (boardImage.image?.jpegData(compressionQuality: 0.25))
-        let sendDBModel = SendDBModel(userID:Auth.auth().currentUser!.uid, userEmail: (Auth.auth().currentUser?.email)!, boardBrand:boadBrandTextField.text!, boardSerialNumber: SerialNumberTextField.text!, boaedImage:boardImageData!)
+        let sendDBModel = SendDBModel(fullName:nameTextField.text!,userID:Auth.auth().currentUser!.uid, userEmail: (Auth.auth().currentUser?.email)!, boardBrand:boadBrandTextField.text!, boardSerialNumber: SerialNumberTextField.text!, boaedImage:boardImageData!)
         sendDBModel.sendDB()
         boardImage.image = UIImage(named:"no-image")
+        nameTextField.text = ""
         boadBrandTextField.text = ""
         SerialNumberTextField.text = ""
-        SerialNumberTextField.endEditing(true)
         self.navigationController?.popViewController(animated: true)
-    
     }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
@@ -92,6 +92,7 @@ extension RegisterBoardViewController: UIImagePickerControllerDelegate,UINavigat
 
 extension RegisterBoardViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        nameTextField.resignFirstResponder()
         boadBrandTextField.resignFirstResponder()
         SerialNumberTextField.resignFirstResponder()
         return true

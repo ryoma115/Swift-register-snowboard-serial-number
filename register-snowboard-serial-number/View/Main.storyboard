@@ -53,30 +53,38 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="ZwU-cn-vbJ">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="ZwU-cn-vbJ">
+                                <rect key="frame" x="0.0" y="98" width="414" height="798"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="73e-O6-lyd">
-                                <rect key="frame" x="180" y="484" width="60" height="60"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bdw-MV-2L5">
+                                <rect key="frame" x="264" y="60" width="110" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="110" id="5sT-oS-cAf"/>
+                                    <constraint firstAttribute="height" constant="40" id="bW8-at-iMm"/>
+                                </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="追加する"/>
                                 <connections>
-                                    <segue destination="uui-Xt-uad" kind="show" id="5JQ-r8-MiC"/>
+                                    <segue destination="uui-Xt-uad" kind="show" id="hhO-t4-Zzg"/>
                                 </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Qf9-fs-rlf"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="Bdw-MV-2L5" firstAttribute="top" secondItem="6bq-Ly-XFf" secondAttribute="top" constant="60" id="JL4-9h-pJ7"/>
                             <constraint firstItem="ZwU-cn-vbJ" firstAttribute="top" secondItem="6bq-Ly-XFf" secondAttribute="top" id="JYl-Gs-VLF"/>
                             <constraint firstItem="ZwU-cn-vbJ" firstAttribute="trailing" secondItem="Qf9-fs-rlf" secondAttribute="trailing" id="Te7-Ay-O1I"/>
                             <constraint firstAttribute="bottom" secondItem="ZwU-cn-vbJ" secondAttribute="bottom" id="V4u-wH-tXA"/>
                             <constraint firstItem="ZwU-cn-vbJ" firstAttribute="leading" secondItem="Qf9-fs-rlf" secondAttribute="leading" id="hAZ-48-rNe"/>
+                            <constraint firstItem="Qf9-fs-rlf" firstAttribute="trailing" secondItem="Bdw-MV-2L5" secondAttribute="trailing" constant="40" id="pym-dG-1Wj"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="my board" selectedImage="person.circle" catalog="system" id="yTS-6H-H2d"/>
+                    <tabBarItem key="tabBarItem" title="my board" image="person.circle" catalog="system" selectedImage="person.circle" id="yTS-6H-H2d"/>
+                    <connections>
+                        <outlet property="tableView" destination="ZwU-cn-vbJ" id="3lQ-H8-ooa"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XGP-mk-Opx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -90,20 +98,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="メーカーを入力してください" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IQg-i8-q3n">
-                                <rect key="frame" x="57" y="484" width="300" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="シリアルナンバーを入力してください" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jjY-Zn-rkl">
-                                <rect key="frame" x="57" y="574" width="300" height="34"/>
+                                <rect key="frame" x="57" y="671" width="300" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q5h-Ky-z9v">
-                                <rect key="frame" x="132" y="691" width="150" height="60"/>
+                                <rect key="frame" x="132" y="787" width="150" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="linkColor"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -121,6 +123,18 @@
                                     <outletCollection property="gestureRecognizers" destination="MLK-cK-alj" appends="YES" id="Z4F-eS-MP9"/>
                                 </connections>
                             </imageView>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="メーカーを入力してください" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IQg-i8-q3n">
+                                <rect key="frame" x="57" y="578" width="300" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="名前" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eya-Vh-YfC">
+                                <rect key="frame" x="57" y="494" width="300" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="glZ-5p-L0R"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -130,6 +144,7 @@
                         <outlet property="SerialNumberTextField" destination="jjY-Zn-rkl" id="2IO-Ap-g5N"/>
                         <outlet property="boadBrandTextField" destination="IQg-i8-q3n" id="DsV-b0-HSd"/>
                         <outlet property="boardImage" destination="oJz-7I-CtH" id="hUa-Nu-XbR"/>
+                        <outlet property="nameTextField" destination="eya-Vh-YfC" id="c4f-ia-Ude"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mOX-us-kjb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -149,28 +164,65 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Chs-ZC-ceM">
-                                <rect key="frame" x="20" y="121" width="245" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FmS-Hu-zkC">
-                                <rect key="frame" x="298" y="124" width="53" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="検索"/>
-                            </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="okE-Yo-PKY">
-                                <rect key="frame" x="0.0" y="214" width="414" height="682"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="xew-ba-AOZ">
+                                <rect key="frame" x="20" y="118" width="374" height="34"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Chs-ZC-ceM">
+                                        <rect key="frame" x="0.0" y="0.0" width="286" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FmS-Hu-zkC">
+                                        <rect key="frame" x="306" y="0.0" width="68" height="34"/>
+                                        <color key="backgroundColor" systemColor="systemBlueColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="34" id="u5p-ke-zpb"/>
+                                            <constraint firstAttribute="width" constant="68" id="vgi-er-Ea5"/>
+                                        </constraints>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="検索"/>
+                                        <connections>
+                                            <action selector="searchButton:" destination="UIM-SS-zW6" eventType="touchUpInside" id="l0f-1b-zAk"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oi8-Gk-iTb">
+                                <rect key="frame" x="20" y="167" width="374" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="rCi-xw-5fR"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="okE-Yo-PKY">
+                                <rect key="frame" x="0.0" y="216" width="414" height="680"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Cok-n0-fLX"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Cok-n0-fLX" firstAttribute="trailing" secondItem="xew-ba-AOZ" secondAttribute="trailing" constant="20" id="732-CU-RUd"/>
+                            <constraint firstAttribute="bottom" secondItem="okE-Yo-PKY" secondAttribute="bottom" id="KNA-B2-Ll9"/>
+                            <constraint firstItem="xew-ba-AOZ" firstAttribute="leading" secondItem="Cok-n0-fLX" secondAttribute="leading" constant="20" id="SHN-HL-E8t"/>
+                            <constraint firstItem="Oi8-Gk-iTb" firstAttribute="leading" secondItem="Cok-n0-fLX" secondAttribute="leading" constant="20" id="iPg-Jg-SUt"/>
+                            <constraint firstItem="okE-Yo-PKY" firstAttribute="trailing" secondItem="Cok-n0-fLX" secondAttribute="trailing" id="jAg-gj-TB6"/>
+                            <constraint firstItem="okE-Yo-PKY" firstAttribute="top" secondItem="Oi8-Gk-iTb" secondAttribute="bottom" constant="15" id="l2A-a9-nbU"/>
+                            <constraint firstItem="okE-Yo-PKY" firstAttribute="leading" secondItem="Cok-n0-fLX" secondAttribute="leading" id="l2J-Xs-h8f"/>
+                            <constraint firstItem="xew-ba-AOZ" firstAttribute="top" secondItem="Cok-n0-fLX" secondAttribute="top" constant="30" id="sRz-aF-G9n"/>
+                            <constraint firstItem="Cok-n0-fLX" firstAttribute="trailing" secondItem="Oi8-Gk-iTb" secondAttribute="trailing" constant="20" id="yVw-QQ-GYJ"/>
+                            <constraint firstItem="Oi8-Gk-iTb" firstAttribute="top" secondItem="xew-ba-AOZ" secondAttribute="bottom" constant="15" id="yxO-xQ-eZy"/>
+                        </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="search" selectedImage="magnifyingglass" catalog="system" id="p7M-Bx-1GF"/>
+                    <tabBarItem key="tabBarItem" title="search" image="magnifyingglass" catalog="system" selectedImage="magnifyingglass" id="p7M-Bx-1GF"/>
+                    <connections>
+                        <outlet property="searchText" destination="Chs-ZC-ceM" id="IQF-Hj-ZXy"/>
+                        <outlet property="tableView" destination="okE-Yo-PKY" id="uZ8-oB-8G3"/>
+                        <outlet property="warningLabel" destination="Oi8-Gk-iTb" id="B2Y-Cm-QPb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BKs-Te-qmG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -222,6 +274,9 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBlueColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

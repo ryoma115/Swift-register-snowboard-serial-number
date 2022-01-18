@@ -38,12 +38,13 @@
 * [github](https://github.com/ryoma115/Swift-register-snowboard-serial-number)
 
 # 注意点
-* GIDSignIn.sharedInstance()?.を入力時、GoogleSignInのバージョンが5.0.1以下の場合エラー表示になる場合があった
-解決方法　pod install時　バージョン５以上を指定する(pod 'GoogleSignIn', '~> 5.0')
-* UIButtonを用い写真の設定画面を実装しようとしたが、imagePickerControllerからのUIButton.imageView.imageで変更を試みたがうまく反映されなかった
-解決方法　UIImageにtapViewを用いて、imagePickerControllerでUIimage.imageで実装できた。
-* .getDocumentsおよび.addSnapshotListener使用する際、whereFieldとorderByを併用し用途するとデータ所得ができなくなるバグ？使用？があった
-そのため、データ所得が新たに制約で並べ直す必要があった
+* GIDSignIn.sharedInstance()?.を入力時、GoogleSignInのバージョンが5.0.1以下の場合エラー表示になる場合があった  
+解決方法　pod install時　バージョン５以上を指定する(pod 'GoogleSignIn', '~> 5.0')  
+* UIButtonを用い写真の設定画面を実装しようとしたが、imagePickerControllerからのUIButton.imageView.imageで変更を試みたがうまく反映されなかった  
+解決方法　UIImageにtapViewを用いて、imagePickerControllerでUIimage.imageで実装できた。  
+* .getDocumentsおよび.addSnapshotListener使用する際、whereFieldとorderByを併用し用途するとデータ所得ができなくなるバグ？使用？があった  
+解決方法 そのため、データ所得後に新たに制約で並べ直す必要があった
+* カスタムセルを使用する際、cell = tableView.dequeueReusableCell...にダウンキャスト(as! or as?)が必要な場合がある。今回はダウンキャストしなかった際、読み込みができていなかった。
 # 今後行いたいこと
 
 # 自己紹介
