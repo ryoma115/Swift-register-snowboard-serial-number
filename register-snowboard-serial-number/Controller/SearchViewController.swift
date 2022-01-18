@@ -35,6 +35,7 @@ class SearchViewController: UIViewController {
     }
     
     @IBAction func searchButton(_ sender: Any) {
+        searchText.endEditing(true)
         loadDB.dataSets = []
         warningLabel.text = ""
         tableView.reloadData()

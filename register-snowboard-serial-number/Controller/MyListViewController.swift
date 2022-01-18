@@ -13,6 +13,7 @@ class MyListViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     let loadDB = LoadDBModel()
+    let deleteDB = DeleteDBModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,15 +23,16 @@ class MyListViewController: UIViewController {
         tableView.separatorStyle = .none
         tableView.register(UINib(nibName: "MyListTableViewCell", bundle: nil), forCellReuseIdentifier: "Cell")
         tableView.backgroundColor = .systemGray6
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
+        loadDB.dataSets = []
         loadDB.loadUserData(searchWord: (Auth.auth().currentUser?.email)!, searchType: "userEmail") { (error) in
             if error == false {
                 self.tableView.reloadData()
             }
         }
-    }
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.navigationController?.setNavigationBarHidden(true, animated: false)
     }
 }
 
@@ -44,7 +46,31 @@ extension MyListViewController: UITableViewDelegate,UITableViewDataSource{
         cell.boardBrand.text = loadDB.dataSets[indexPath.row].boardBrand
         cell.boardImage.sd_setImage(with: URL(string: loadDB.dataSets[indexPath.row].boardImageUrl), completed: nil)
         cell.setUp()
+        
+        let addButton = UIButton()
+        addButton.setTitle("X", for: .normal)
+        addButton.setTitleColor(.gray, for: .normal)
+        addButton.tag = indexPath.row
+        addButton.addTarget(self, action: #selector(buttonEvemt), for: UIControl.Event.touchUpInside)
+        addButton.frame = CGRect(x:0, y:0, width:80, height:80)
+        cell.contentView.addSubview(addButton)
+        
         return cell
+    }
+    @objc func buttonEvemt(_ sender: UIButton) {
+        deleteDB.deleteDocument(documentID: loadDB.dataSets[sender.tag].documentID) { error in
+            if error{
+                print("fatail delete")
+            }else{
+                print("launch load")
+                self.loadDB.dataSets = []
+                self.loadDB.loadUserData(searchWord: (Auth.auth().currentUser?.email)!, searchType: "userEmail") { (error) in
+                    if error == false {
+                        self.tableView.reloadData()
+                    }
+                }
+            }
+        }
     }
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1

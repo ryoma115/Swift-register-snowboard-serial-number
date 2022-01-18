@@ -8,6 +8,7 @@
 import UIKit
 
 struct AcceptData {
+    let documentID:String
     let fullName:String
     let userID:String
     let userEmail:String

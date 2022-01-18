@@ -23,6 +23,7 @@ class LoadDBModel{
             }
             for document in querySnapshot!.documents{
                 let data = document.data()
+                let documentID = String(document.documentID)
                 let fullName = data["fullName"] as! String
                 let userID = data["userID"] as! String
                 let userEmail = data["userEmail"] as! String
@@ -30,7 +31,7 @@ class LoadDBModel{
                 let boardSerialNumber = data["boardSerialNumber"] as! String
                 let boardImageUrl = data["boardImageUrl"] as! String
                 let postDate = data["postDate"] as! Double
-                let getData = AcceptData(fullName: fullName,userID: userID, userEmail: userEmail, boardBrand: boardBrand, boardSerialNumber: boardSerialNumber, boardImageUrl: boardImageUrl, postDate: postDate)
+                let getData = AcceptData(documentID: documentID, fullName: fullName,userID: userID, userEmail: userEmail, boardBrand: boardBrand, boardSerialNumber: boardSerialNumber, boardImageUrl: boardImageUrl, postDate: postDate)
                 self.dataSets.append(getData)
             }
             completion(false)

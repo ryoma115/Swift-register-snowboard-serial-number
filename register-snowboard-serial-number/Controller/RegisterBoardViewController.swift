@@ -16,6 +16,7 @@ class RegisterBoardViewController: UIViewController {
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var boadBrandTextField: UITextField!
     @IBOutlet weak var SerialNumberTextField: UITextField!
+    @IBOutlet weak var warningLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,14 +33,19 @@ class RegisterBoardViewController: UIViewController {
         showAlert()
     }
     @IBAction func tapRegisterButton(_ sender: Any) {
-        let boardImageData = (boardImage.image?.jpegData(compressionQuality: 0.25))
-        let sendDBModel = SendDBModel(fullName:nameTextField.text!,userID:Auth.auth().currentUser!.uid, userEmail: (Auth.auth().currentUser?.email)!, boardBrand:boadBrandTextField.text!, boardSerialNumber: SerialNumberTextField.text!, boaedImage:boardImageData!)
-        sendDBModel.sendDB()
-        boardImage.image = UIImage(named:"no-image")
-        nameTextField.text = ""
-        boadBrandTextField.text = ""
-        SerialNumberTextField.text = ""
-        self.navigationController?.popViewController(animated: true)
+        if nameTextField.text == "" || boadBrandTextField.text == "" || SerialNumberTextField.text == ""{
+            warningLabel.text = "＊入力欄に誤りがあります"
+        }else{
+            let boardImageData = (boardImage.image?.jpegData(compressionQuality: 0.25))
+            let sendDBModel = SendDBModel(fullName:nameTextField.text!,userID:Auth.auth().currentUser!.uid, userEmail: (Auth.auth().currentUser?.email)!, boardBrand:boadBrandTextField.text!, boardSerialNumber: SerialNumberTextField.text!, boaedImage:boardImageData!)
+            sendDBModel.sendDB()
+            boardImage.image = UIImage(named:"no-image")
+            nameTextField.text = ""
+            boadBrandTextField.text = ""
+            SerialNumberTextField.text = ""
+            print(1)
+            self.navigationController?.popViewController(animated: true)
+        }
     }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
@@ -87,7 +93,6 @@ extension RegisterBoardViewController: UIImagePickerControllerDelegate,UINavigat
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         self.dismiss(animated: true)
     }
-    
 }
 
 extension RegisterBoardViewController: UITextFieldDelegate {

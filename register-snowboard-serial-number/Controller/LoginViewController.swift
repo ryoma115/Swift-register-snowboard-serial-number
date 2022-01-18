@@ -19,8 +19,6 @@ class LoginViewController: UIViewController {
     @IBAction func googleSignInButton(_ sender: Any) {
         GIDSignIn.sharedInstance().signIn()
     }
-    
-    
 }
 
 extension LoginViewController: GIDSignInDelegate{
