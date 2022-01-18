@@ -30,6 +30,7 @@ class MyListViewController: UIViewController {
         loadDB.dataSets = []
         loadDB.loadUserData(searchWord: (Auth.auth().currentUser?.email)!, searchType: "userEmail") { (error) in
             if error == false {
+                print(self.loadDB.dataSets.count)
                 self.tableView.reloadData()
             }
         }
@@ -54,7 +55,7 @@ extension MyListViewController: UITableViewDelegate,UITableViewDataSource{
         addButton.addTarget(self, action: #selector(buttonEvemt), for: UIControl.Event.touchUpInside)
         addButton.frame = CGRect(x:0, y:0, width:80, height:80)
         cell.contentView.addSubview(addButton)
-        
+        cell.selectionStyle = .none
         return cell
     }
     @objc func buttonEvemt(_ sender: UIButton) {

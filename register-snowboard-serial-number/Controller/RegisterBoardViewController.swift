@@ -11,6 +11,7 @@ import FirebaseAuth
 class RegisterBoardViewController: UIViewController {
     
     let photoCheckModel = PhotoCheckModel()
+    let loadDB = LoadDBModel()
 
     @IBOutlet weak var boardImage: UIImageView!
     @IBOutlet weak var nameTextField: UITextField!
@@ -38,13 +39,25 @@ class RegisterBoardViewController: UIViewController {
         }else{
             let boardImageData = (boardImage.image?.jpegData(compressionQuality: 0.25))
             let sendDBModel = SendDBModel(fullName:nameTextField.text!,userID:Auth.auth().currentUser!.uid, userEmail: (Auth.auth().currentUser?.email)!, boardBrand:boadBrandTextField.text!, boardSerialNumber: SerialNumberTextField.text!, boaedImage:boardImageData!)
-            sendDBModel.sendDB()
-            boardImage.image = UIImage(named:"no-image")
-            nameTextField.text = ""
-            boadBrandTextField.text = ""
-            SerialNumberTextField.text = ""
-            print(1)
-            self.navigationController?.popViewController(animated: true)
+            sendDBModel.sendDB { error in
+                if error == false{
+                    self.boardImage.image = UIImage(named:"no-image")
+                    self.nameTextField.text = ""
+                    self.boadBrandTextField.text = ""
+                    self.SerialNumberTextField.text = ""
+                    let indicatorView = UIActivityIndicatorView()
+                    indicatorView.center = self.view.center
+                    indicatorView.style = .large
+                    indicatorView.color = .black
+                    self.view.addSubview(indicatorView)
+                    self.view.bringSubviewToFront(indicatorView)
+                    indicatorView.startAnimating()
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
+                        indicatorView.stopAnimating()
+                        self.navigationController?.popViewController(animated: true)
+                    }
+                }
+            }
         }
     }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

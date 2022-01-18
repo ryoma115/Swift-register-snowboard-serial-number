@@ -66,6 +66,7 @@ extension SearchViewController: UITableViewDelegate,UITableViewDataSource{
         cell.boardBrand.text = loadDB.dataSets[indexPath.row].boardBrand
         cell.boardImage.sd_setImage(with: URL(string: loadDB.dataSets[indexPath.row].boardImageUrl), completed: nil)
         cell.setUp()
+        cell.selectionStyle = .none
         return cell
     }
     func numberOfSections(in tableView: UITableView) -> Int {
