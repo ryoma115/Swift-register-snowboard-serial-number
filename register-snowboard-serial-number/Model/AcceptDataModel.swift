@@ -16,4 +16,5 @@ struct AcceptData {
     let boardSerialNumber:String
     let boardImageUrl:String
     let postDate:Double
+    let lost:Bool
 }

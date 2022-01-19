@@ -30,7 +30,6 @@ class MyListViewController: UIViewController {
         loadDB.dataSets = []
         loadDB.loadUserData(searchWord: (Auth.auth().currentUser?.email)!, searchType: "userEmail") { (error) in
             if error == false {
-                print(self.loadDB.dataSets.count)
                 self.tableView.reloadData()
             }
         }
@@ -47,31 +46,41 @@ extension MyListViewController: UITableViewDelegate,UITableViewDataSource{
         cell.boardBrand.text = loadDB.dataSets[indexPath.row].boardBrand
         cell.boardImage.sd_setImage(with: URL(string: loadDB.dataSets[indexPath.row].boardImageUrl), completed: nil)
         cell.setUp()
+        cell.selectionStyle = .none
         
         let addButton = UIButton()
         addButton.setTitle("X", for: .normal)
         addButton.setTitleColor(.gray, for: .normal)
         addButton.tag = indexPath.row
         addButton.addTarget(self, action: #selector(buttonEvemt), for: UIControl.Event.touchUpInside)
-        addButton.frame = CGRect(x:0, y:0, width:80, height:80)
+        addButton.frame = CGRect(x:0, y:0, width:50, height:50)
         cell.contentView.addSubview(addButton)
-        cell.selectionStyle = .none
+        
         return cell
     }
     @objc func buttonEvemt(_ sender: UIButton) {
-        deleteDB.deleteDocument(documentID: loadDB.dataSets[sender.tag].documentID) { error in
-            if error{
-                print("fatail delete")
-            }else{
-                print("launch load")
-                self.loadDB.dataSets = []
-                self.loadDB.loadUserData(searchWord: (Auth.auth().currentUser?.email)!, searchType: "userEmail") { (error) in
-                    if error == false {
-                        self.tableView.reloadData()
+        let alert = UIAlertController(title: "注意", message: "本当に削除してもよろしいですか", preferredStyle: .actionSheet)
+        let cancelAlert = UIAlertAction(title: "キャンセル", style: .cancel) { (action) in
+            self.dismiss(animated: true, completion: nil)
+        }
+        let deleteAlert = UIAlertAction(title: "削除", style: .destructive) { (action) in
+            self.deleteDB.deleteDocument(documentID: self.loadDB.dataSets[sender.tag].documentID) { error in
+                if error{
+                    print("fatail delete")
+                }else{
+                    print("launch load")
+                    self.loadDB.dataSets = []
+                    self.loadDB.loadUserData(searchWord: (Auth.auth().currentUser?.email)!, searchType: "userEmail") { (error) in
+                        if error == false {
+                            self.tableView.reloadData()
+                        }
                     }
                 }
             }
         }
+        alert.addAction(cancelAlert)
+        alert.addAction(deleteAlert)
+        present(alert, animated: true, completion: nil)
     }
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1

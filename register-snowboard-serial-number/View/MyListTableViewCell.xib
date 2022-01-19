@@ -17,13 +17,16 @@
                 <rect key="frame" x="0.0" y="0.0" width="300" height="449"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uTt-LV-Ykw">
-                        <rect key="frame" x="12" y="12" width="276" height="425"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E0g-aC-u2b">
                         <rect key="frame" x="12" y="12" width="276" height="425"/>
                         <subviews>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eQk-yh-Vfa">
+                                <rect key="frame" x="227" y="20" width="49" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="lostSwitch:" destination="KGk-i7-Jjw" eventType="valueChanged" id="HNa-fF-Q5p"/>
+                                </connections>
+                            </switch>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hxb-9N-oRM">
                                 <rect key="frame" x="60" y="20" width="156" height="156"/>
                                 <constraints>
@@ -173,14 +176,10 @@
                     </view>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="uTt-LV-Ykw" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="33G-V2-eSr"/>
                     <constraint firstItem="E0g-aC-u2b" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="6VZ-Rx-owf"/>
                     <constraint firstItem="E0g-aC-u2b" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="12" id="Sdp-0a-mB3"/>
-                    <constraint firstAttribute="bottom" secondItem="uTt-LV-Ykw" secondAttribute="bottom" constant="12" id="UAL-De-QS4"/>
                     <constraint firstAttribute="trailing" secondItem="E0g-aC-u2b" secondAttribute="trailing" constant="12" id="uSR-CH-aIk"/>
-                    <constraint firstItem="uTt-LV-Ykw" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="12" id="w77-XH-cpb"/>
                     <constraint firstAttribute="bottom" secondItem="E0g-aC-u2b" secondAttribute="bottom" constant="12" id="zQP-YI-Fha"/>
-                    <constraint firstAttribute="trailing" secondItem="uTt-LV-Ykw" secondAttribute="trailing" constant="12" id="zZU-7C-B8j"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
@@ -190,8 +189,8 @@
                 <outlet property="boardSerialNumber" destination="Atr-Sw-P0R" id="CpV-VW-zaf"/>
                 <outlet property="dateID" destination="gM9-7O-sfR" id="9ES-ji-Sc5"/>
                 <outlet property="fullName" destination="enD-Pa-seZ" id="hBU-0J-Fyy"/>
-                <outlet property="mainBackground" destination="uTt-LV-Ykw" id="tBj-rT-54j"/>
                 <outlet property="shadowLayer" destination="E0g-aC-u2b" id="f68-iC-ROd"/>
+                <outlet property="uiSwitch" destination="eQk-yh-Vfa" id="aaO-UU-MH1"/>
                 <outlet property="userID" destination="LUl-hZ-5Yo" id="zxC-0I-xih"/>
             </connections>
             <point key="canvasLocation" x="137.68115942028987" y="123.54910714285714"/>

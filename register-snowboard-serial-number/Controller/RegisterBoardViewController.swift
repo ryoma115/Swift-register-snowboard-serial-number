@@ -34,8 +34,10 @@ class RegisterBoardViewController: UIViewController {
         showAlert()
     }
     @IBAction func tapRegisterButton(_ sender: Any) {
+        let generater = UINotificationFeedbackGenerator()
         if nameTextField.text == "" || boadBrandTextField.text == "" || SerialNumberTextField.text == ""{
             warningLabel.text = "＊入力欄に誤りがあります"
+            generater.notificationOccurred(.error)
         }else{
             let boardImageData = (boardImage.image?.jpegData(compressionQuality: 0.25))
             let sendDBModel = SendDBModel(fullName:nameTextField.text!,userID:Auth.auth().currentUser!.uid, userEmail: (Auth.auth().currentUser?.email)!, boardBrand:boadBrandTextField.text!, boardSerialNumber: SerialNumberTextField.text!, boaedImage:boardImageData!)
@@ -54,6 +56,7 @@ class RegisterBoardViewController: UIViewController {
                     indicatorView.startAnimating()
                     DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
                         indicatorView.stopAnimating()
+                        generater.notificationOccurred(.success)
                         self.navigationController?.popViewController(animated: true)
                     }
                 }

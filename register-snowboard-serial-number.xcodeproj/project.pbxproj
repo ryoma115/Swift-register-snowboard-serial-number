@@ -142,11 +142,11 @@
 		5ED4E337278BCABE003ED53F /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				5E23CEC3278D829500C39D4B /* photoCheckModel.swift */,
 				5E6E5053278E693700B45D81 /* SendDBModel.swift */,
 				5E97185F278FE6490080A5AA /* LoadDBModel.swift */,
-				5E971861278FF24E0080A5AA /* AcceptDataModel.swift */,
 				5E97BBCD27969A8E003F2045 /* DeleteDBModel.swift */,
+				5E23CEC3278D829500C39D4B /* photoCheckModel.swift */,
+				5E971861278FF24E0080A5AA /* AcceptDataModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";

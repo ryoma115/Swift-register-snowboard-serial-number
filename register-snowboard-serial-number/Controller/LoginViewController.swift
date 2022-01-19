@@ -37,9 +37,12 @@ extension LoginViewController: GIDSignInDelegate{
         
         Auth.auth().signIn(with: credential) { authResult, error in
             if let error = error{
+                let generater = UINotificationFeedbackGenerator()
+                generater.notificationOccurred(.error)
                 print(error.localizedDescription)
-                return
             } else {
+                let generater = UINotificationFeedbackGenerator()
+                generater.notificationOccurred(.success)
                 let tabBarContoroller = self.storyboard?.instantiateViewController(withIdentifier: "tabBarController") as! UITabBarController
                 self.navigationController?.pushViewController(tabBarContoroller, animated: true)
                 print("Google SignIn Success!")

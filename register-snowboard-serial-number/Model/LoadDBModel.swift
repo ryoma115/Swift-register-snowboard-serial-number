@@ -31,7 +31,7 @@ class LoadDBModel{
                 let boardSerialNumber = data["boardSerialNumber"] as! String
                 let boardImageUrl = data["boardImageUrl"] as! String
                 let postDate = data["postDate"] as! Double
-                let getData = AcceptData(documentID: documentID, fullName: fullName,userID: userID, userEmail: userEmail, boardBrand: boardBrand, boardSerialNumber: boardSerialNumber, boardImageUrl: boardImageUrl, postDate: postDate)
+                let getData = AcceptData(documentID: documentID, fullName: fullName,userID: userID, userEmail: userEmail, boardBrand: boardBrand, boardSerialNumber: boardSerialNumber, boardImageUrl: boardImageUrl, postDate: postDate, lost: false)
                 self.dataSets.append(getData)
             }
             completion(false)

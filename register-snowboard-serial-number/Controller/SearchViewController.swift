@@ -64,6 +64,7 @@ extension SearchViewController: UITableViewDelegate,UITableViewDataSource{
         cell.userID.text = loadDB.dataSets[indexPath.row].userID
         cell.boardSerialNumber.text = loadDB.dataSets[indexPath.row].boardSerialNumber
         cell.boardBrand.text = loadDB.dataSets[indexPath.row].boardBrand
+        cell.dateID.text = String(loadDB.dataSets[indexPath.row].postDate)
         cell.boardImage.sd_setImage(with: URL(string: loadDB.dataSets[indexPath.row].boardImageUrl), completed: nil)
         cell.setUp()
         cell.selectionStyle = .none

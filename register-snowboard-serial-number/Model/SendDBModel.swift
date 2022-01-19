@@ -43,7 +43,7 @@ class SendDBModel{
                 if error != nil{
                     print("SendDBModel downloadURL error")
                 }
-                self.db.collection("snowboards").document().setData(["fullName":fullName,"userID":self.userID as Any,"userEmail":self.userEmail as Any,"boardBrand":self.boardBrand as Any,"boardSerialNumber":self.boardSerialNumber as Any,"boardImageUrl":url?.absoluteString as Any,"postDate":Date().timeIntervalSince1970 as Any])
+                self.db.collection("snowboards").document().setData(["fullName":fullName,"userID":self.userID as Any,"userEmail":self.userEmail as Any,"boardBrand":self.boardBrand as Any,"boardSerialNumber":self.boardSerialNumber as Any,"boardImageUrl":url?.absoluteString as Any,"postDate":Date().timeIntervalSince1970 as Any,"lost": false as Any])
             }
         }
         completion(false)
