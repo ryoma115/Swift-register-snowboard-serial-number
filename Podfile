@@ -15,5 +15,6 @@ target 'register-snowboard-serial-number' do
   pod 'Firebase/Firestore'
   pod 'SDWebImage', '~> 5.0'
   pod 'GoogleSignIn', '~> 5.0'
+  pod 'IQKeyboardManagerSwift'
 
 end
