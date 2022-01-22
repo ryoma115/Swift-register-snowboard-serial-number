@@ -14,6 +14,7 @@ class MyListViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     let loadDB = LoadDBModel()
     let deleteDB = DeleteDBModel()
+    let updateDB = UpdateDBModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,17 +50,21 @@ extension MyListViewController: UITableViewDelegate,UITableViewDataSource{
         cell.selectionStyle = .none
         
         let addButton = UIButton()
-        addButton.setTitle("X", for: .normal)
+        addButton.setTitle("✖️", for: .normal)
         addButton.setTitleColor(.gray, for: .normal)
         addButton.tag = indexPath.row
         addButton.addTarget(self, action: #selector(buttonEvemt), for: UIControl.Event.touchUpInside)
-        addButton.frame = CGRect(x:0, y:0, width:50, height:50)
+        addButton.frame = CGRect(x:0, y:0, width:80, height:80)
         cell.contentView.addSubview(addButton)
         
+        cell.lostSwitch.isOn = loadDB.dataSets[indexPath.row].lost
+        cell.lostSwitch.tag = indexPath.row
+        cell.lostSwitch.addTarget(self, action: #selector(changeSwitch(_:)), for: UIControl.Event.valueChanged)
+
         return cell
     }
     @objc func buttonEvemt(_ sender: UIButton) {
-        let alert = UIAlertController(title: "注意", message: "本当に削除してもよろしいですか", preferredStyle: .actionSheet)
+        let alert = UIAlertController(title: "注意", message: "本当に削除してもよろしいですか\n(復元ができなくなりmasu)", preferredStyle: .actionSheet)
         let cancelAlert = UIAlertAction(title: "キャンセル", style: .cancel) { (action) in
             self.dismiss(animated: true, completion: nil)
         }
@@ -81,6 +86,13 @@ extension MyListViewController: UITableViewDelegate,UITableViewDataSource{
         alert.addAction(cancelAlert)
         alert.addAction(deleteAlert)
         present(alert, animated: true, completion: nil)
+    }
+    @objc func changeSwitch(_ sender: UISwitch) {
+        if sender.isOn{
+            updateDB.changeTrue(documentID: loadDB.dataSets[sender.tag].documentID)
+        }else{
+            updateDB.changeFalse(documentID: loadDB.dataSets[sender.tag].documentID)
+        }
     }
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1

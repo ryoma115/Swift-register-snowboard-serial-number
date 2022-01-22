@@ -16,14 +16,12 @@ class MyListTableViewCell: UITableViewCell {
     @IBOutlet weak var userID: UILabel!
     @IBOutlet weak var dateID: UILabel!
     @IBOutlet weak var shadowLayer: UIView!
-    @IBOutlet weak var uiSwitch: UISwitch!
+    @IBOutlet weak var lostSwitch: UISwitch!
+    @IBOutlet weak var lostLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-    
-    }
-    
-    @IBAction func lostSwitch(_ sender: Any) {
+        
     }
     
     func setUp(){

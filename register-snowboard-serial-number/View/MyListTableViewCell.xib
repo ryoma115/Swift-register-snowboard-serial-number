@@ -20,13 +20,6 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E0g-aC-u2b">
                         <rect key="frame" x="12" y="12" width="276" height="425"/>
                         <subviews>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eQk-yh-Vfa">
-                                <rect key="frame" x="227" y="20" width="49" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <connections>
-                                    <action selector="lostSwitch:" destination="KGk-i7-Jjw" eventType="valueChanged" id="HNa-fF-Q5p"/>
-                                </connections>
-                            </switch>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hxb-9N-oRM">
                                 <rect key="frame" x="60" y="20" width="156" height="156"/>
                                 <constraints>
@@ -67,14 +60,14 @@
                                         <rect key="frame" x="0.0" y="62.5" width="196" height="57"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="シリアルナンバー" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9js-Vl-NK6">
-                                                <rect key="frame" x="0.0" y="0.0" width="196" height="30.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="196" height="27"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Atr-Sw-P0R">
-                                                <rect key="frame" x="0.0" y="30.5" width="196" height="26.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                                <rect key="frame" x="0.0" y="27" width="196" height="30"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -159,19 +152,34 @@
                                     <constraint firstItem="sGl-Cs-qny" firstAttribute="top" secondItem="zHp-5M-MU7" secondAttribute="top" id="reg-U5-CU8"/>
                                 </constraints>
                             </stackView>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eQk-yh-Vfa">
+                                <rect key="frame" x="3" y="66.5" width="51" height="31"/>
+                            </switch>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="紛失" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D24-54-ybO">
+                                <rect key="frame" x="14" y="50" width="27" height="13.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="hxb-9N-oRM" firstAttribute="leading" secondItem="eQk-yh-Vfa" secondAttribute="trailing" constant="8" symbolic="YES" id="6Jy-AH-AMu"/>
                             <constraint firstItem="hxb-9N-oRM" firstAttribute="top" secondItem="E0g-aC-u2b" secondAttribute="top" constant="20" id="AoM-ev-iD1"/>
                             <constraint firstAttribute="bottom" secondItem="zHp-5M-MU7" secondAttribute="bottom" constant="20" id="DMC-Qx-THN"/>
                             <constraint firstAttribute="trailing" secondItem="P5c-Ur-3Bi" secondAttribute="trailing" constant="40" id="Dkt-6v-EUa"/>
                             <constraint firstAttribute="trailing" secondItem="hxb-9N-oRM" secondAttribute="trailing" constant="60" id="FDb-fj-vaV"/>
                             <constraint firstItem="P5c-Ur-3Bi" firstAttribute="top" secondItem="hxb-9N-oRM" secondAttribute="bottom" constant="20" id="G1i-Og-GmN"/>
                             <constraint firstItem="P5c-Ur-3Bi" firstAttribute="leading" secondItem="E0g-aC-u2b" secondAttribute="leading" constant="40" id="Mzx-nS-Pg1"/>
+                            <constraint firstItem="D24-54-ybO" firstAttribute="top" secondItem="E0g-aC-u2b" secondAttribute="top" constant="50" id="R6b-08-4Yg"/>
                             <constraint firstItem="zHp-5M-MU7" firstAttribute="leading" secondItem="E0g-aC-u2b" secondAttribute="leading" constant="20" id="V3o-jm-YPk"/>
+                            <constraint firstItem="D24-54-ybO" firstAttribute="leading" secondItem="E0g-aC-u2b" secondAttribute="leading" constant="14" id="enL-0D-7U2"/>
+                            <constraint firstItem="eQk-yh-Vfa" firstAttribute="top" secondItem="D24-54-ybO" secondAttribute="bottom" constant="3" id="gIm-nf-qbY"/>
                             <constraint firstItem="zHp-5M-MU7" firstAttribute="top" secondItem="P5c-Ur-3Bi" secondAttribute="bottom" constant="20" id="kPP-d4-KCs"/>
                             <constraint firstAttribute="trailing" secondItem="zHp-5M-MU7" secondAttribute="trailing" constant="20" id="l5Y-UK-jF0"/>
+                            <constraint firstItem="hxb-9N-oRM" firstAttribute="leading" secondItem="D24-54-ybO" secondAttribute="trailing" constant="19" id="nVJ-bo-brB"/>
                             <constraint firstItem="hxb-9N-oRM" firstAttribute="leading" secondItem="E0g-aC-u2b" secondAttribute="leading" constant="60" id="pdy-eg-5hq"/>
+                            <constraint firstItem="eQk-yh-Vfa" firstAttribute="leading" secondItem="E0g-aC-u2b" secondAttribute="leading" constant="3" id="qok-4s-pXd"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -189,8 +197,9 @@
                 <outlet property="boardSerialNumber" destination="Atr-Sw-P0R" id="CpV-VW-zaf"/>
                 <outlet property="dateID" destination="gM9-7O-sfR" id="9ES-ji-Sc5"/>
                 <outlet property="fullName" destination="enD-Pa-seZ" id="hBU-0J-Fyy"/>
+                <outlet property="lostLabel" destination="D24-54-ybO" id="OKb-hV-v5H"/>
+                <outlet property="lostSwitch" destination="eQk-yh-Vfa" id="otJ-Sg-NPm"/>
                 <outlet property="shadowLayer" destination="E0g-aC-u2b" id="f68-iC-ROd"/>
-                <outlet property="uiSwitch" destination="eQk-yh-Vfa" id="aaO-UU-MH1"/>
                 <outlet property="userID" destination="LUl-hZ-5Yo" id="zxC-0I-xih"/>
             </connections>
             <point key="canvasLocation" x="137.68115942028987" y="123.54910714285714"/>
