@@ -38,11 +38,11 @@
 * [github](https://github.com/ryoma115/Swift-register-snowboard-serial-number)
 
 #リリース時　準備するもの
--[ ] アプリアイコン(120x120,152x152,167x167,1024x1024)
--[ ] Apple Developer Programへの参加
--[ ] App Store プレビュー(iPhone5.5インチ用,iPhone6.5インチ用,iPad Pro 12.9インチ用（第2世代/第3世代))
--[x]プライバシーポリシー[link](https://sites.google.com/view/registert-snow-boads/%E3%83%9B%E3%83%BC%E3%83%A0)
--[x]問い合わせフォーム　[link](https://docs.google.com/forms/d/e/1FAIpQLSdhMZGYWvfVfK-My6JZXqWKeVzkf0v67qM0WxY-_A53t9Byvg/viewform?usp=sf_link)
+- [ ] アプリアイコン(120x120,152x152,167x167,1024x1024)
+- [ ] Apple Developer Programへの参加
+- [ ] App Store プレビュー(iPhone5.5インチ用,iPhone6.5インチ用,iPad Pro 12.9インチ用（第2世代/第3世代))
+- [x]プライバシーポリシー[link](https://sites.google.com/view/registert-snow-boads/%E3%83%9B%E3%83%BC%E3%83%A0)
+- [x]問い合わせフォーム　[link](https://docs.google.com/forms/d/e/1FAIpQLSdhMZGYWvfVfK-My6JZXqWKeVzkf0v67qM0WxY-_A53t9Byvg/viewform?usp=sf_link)
 
 # 注意点
 * GIDSignIn.sharedInstance()?.を入力時、GoogleSignInのバージョンが5.0.1以下の場合エラー表示になる場合があった  
