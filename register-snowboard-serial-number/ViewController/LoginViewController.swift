@@ -12,8 +12,10 @@ import FirebaseAuth
 class LoginViewController: UIViewController {    
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = UIColor.systemGray5
         GIDSignIn.sharedInstance()?.presentingViewController = self
         GIDSignIn.sharedInstance()?.delegate = self
+        self.navigationController?.isToolbarHidden = true
     }
     
     @IBAction func googleSignInButton(_ sender: Any) {
@@ -40,15 +42,14 @@ extension LoginViewController: GIDSignInDelegate{
                 let generater = UINotificationFeedbackGenerator()
                 generater.notificationOccurred(.error)
                 print(error.localizedDescription)
-            } else {
-                let generater = UINotificationFeedbackGenerator()
-                generater.notificationOccurred(.success)
-                let tabBarContoroller = self.storyboard?.instantiateViewController(withIdentifier: "tabBarController") as! UITabBarController
-                self.navigationController?.pushViewController(tabBarContoroller, animated: true)
-                print("Google SignIn Success!")
             }
+            let generater = UINotificationFeedbackGenerator()
+            generater.notificationOccurred(.success)
+            print("Google SignIn Success!")
+            let nextStoryboard = UIStoryboard(name: "TabBar",bundle: nil)
+            guard let nextViewController = nextStoryboard.instantiateInitialViewController() as? TabBarViewController else { return }
+            nextViewController.modalPresentationStyle = .fullScreen
+            self.present(nextViewController, animated: true)
         }
     }
-    
-    
 }

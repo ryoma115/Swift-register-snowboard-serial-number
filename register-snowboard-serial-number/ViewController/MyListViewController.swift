@@ -18,16 +18,15 @@ class MyListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemGray6
         tableView.dataSource = self
         tableView.delegate = self
         tableView.separatorStyle = .none
         tableView.register(UINib(nibName: "MyListTableViewCell", bundle: nil), forCellReuseIdentifier: "Cell")
-        tableView.backgroundColor = .systemGray6
+        tableView.backgroundColor = .systemGray5
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationController?.setNavigationBarHidden(true, animated: false)
+        navigationController?.setNavigationBarHidden(true, animated: false)
         loadDB.dataSets = []
         loadDB.loadUserData(searchWord: (Auth.auth().currentUser?.email)!, searchType: "userEmail") { (error) in
             if error == false {
@@ -60,11 +59,11 @@ extension MyListViewController: UITableViewDelegate,UITableViewDataSource{
         cell.lostSwitch.isOn = loadDB.dataSets[indexPath.row].lost
         cell.lostSwitch.tag = indexPath.row
         cell.lostSwitch.addTarget(self, action: #selector(changeSwitch(_:)), for: UIControl.Event.valueChanged)
-
+        
         return cell
     }
     @objc func buttonEvemt(_ sender: UIButton) {
-        let alert = UIAlertController(title: "注意", message: "本当に削除してもよろしいですか\n(復元ができなくなりmasu)", preferredStyle: .actionSheet)
+        let alert = UIAlertController(title: "注意", message: "本当に削除してもよろしいですか?\n(復元ができなくなります)", preferredStyle: .actionSheet)
         let cancelAlert = UIAlertAction(title: "キャンセル", style: .cancel) { (action) in
             self.dismiss(animated: true, completion: nil)
         }

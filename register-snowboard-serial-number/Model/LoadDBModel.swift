@@ -12,7 +12,9 @@ import FirebaseFirestore
 class LoadDBModel{
     
     let db = Firestore.firestore()
+    var doucmentsNumber = [String]()
     var dataSets = [AcceptData]()
+    var addressData = [AddressData]()
     
     func loadUserData(searchWord:String, searchType:String, completion: @escaping (Bool)-> ()){
         db.collection("snowboards").whereField(searchType, isEqualTo: searchWord).getDocuments { querySnapshot, error in
@@ -38,21 +40,37 @@ class LoadDBModel{
             completion(false)
         }
     }
-    func loadContactAddress(searchWord:String,completion: @escaping (String) -> ()){
+    func loadContactAddress(searchWord:String,completion: @escaping (Bool) -> ()){
         db.collection("contactAddresses").whereField("userEmail", isEqualTo:searchWord).getDocuments { querySnapshot, error in
             if error != nil{
                 print(error.debugDescription)
-                completion("読み込みに失敗しました")
             }
             if querySnapshot?.documents.count == 0{
-                completion("登録されていません")
+                completion(false)
             }else{
                 for document in querySnapshot!.documents{
                     let data = document.data()
+                    let documentID = document.documentID
                     let contactAddress  = data["contactAddress"] as! String
-                    completion(contactAddress)
+                    let userEmail = data["userEmail"] as! String
+                    let getData = AddressData(documentID: documentID, userEmail: userEmail, contactAddress: contactAddress)
+                    self.addressData.append(getData)
+                    completion(true)
                 }
             }
+        }
+    }
+    func searchMatch(boardBrand:String,boardSerialNumber:String, completion: @escaping (Bool)-> ()){
+        db.collection("snowboards").whereField("boardBrand", isEqualTo: boardBrand).whereField("boardSerialNumber", isEqualTo: boardSerialNumber).getDocuments { querySnapshot, error in
+            if error != nil{
+                print(error.debugDescription)
+                completion(true)
+                return
+            }
+            for document in querySnapshot!.documents{
+                self.doucmentsNumber.append("document")
+            }
+            completion(false)
         }
     }
 }

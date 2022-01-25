@@ -18,4 +18,7 @@ class UpdateDBModel{
     func changeFalse(documentID:String){
         db.collection("snowboards").document(documentID).updateData(["lost":false])
     }
+    func ContactAddress(documentID:String,chageAddress:String){
+        db.collection("contactAddresses").document(documentID).updateData(["contactAddress":chageAddress])
+    }
 }

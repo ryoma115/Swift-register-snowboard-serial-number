@@ -25,12 +25,15 @@ class MyListTableViewCell: UITableViewCell {
     }
     
     func setUp(){
-        self.backgroundColor = .systemGray6
+        self.backgroundColor = .systemGray5
         
         self.shadowLayer.layer.cornerRadius = 10
         self.shadowLayer.layer.shadowOffset = CGSize(width: 5.0, height: 3.0)
         self.shadowLayer.layer.shadowColor = UIColor.black.cgColor
         self.shadowLayer.layer.shadowOpacity = 0.6
         self.shadowLayer.layer.shadowRadius = 4
+        
+        self.shadowLayer.layer.borderWidth = 0.5
+        self.shadowLayer.layer.borderColor = UIColor(red: 32/255, green: 206/255, blue: 210/255, alpha: 1).cgColor
     }
 }

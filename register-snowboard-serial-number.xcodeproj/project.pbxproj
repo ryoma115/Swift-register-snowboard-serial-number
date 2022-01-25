@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		394D2496AF9A6FCC5A534C0F /* Pods_register_snowboard_serial_number.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF1D543B1FC162AE38C3C57C /* Pods_register_snowboard_serial_number.framework */; };
 		5E23CEB8278C353D00C39D4B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E23CEB7278C353D00C39D4B /* LoginViewController.swift */; };
-		5E23CEBA278C477A00C39D4B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E23CEB9278C477A00C39D4B /* Main.storyboard */; };
+		5E23CEBA278C477A00C39D4B /* TabBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E23CEB9278C477A00C39D4B /* TabBar.storyboard */; };
 		5E23CEBC278C492100C39D4B /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E23CEBB278C492100C39D4B /* SearchViewController.swift */; };
 		5E23CEBE278C496A00C39D4B /* MyListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E23CEBD278C496A00C39D4B /* MyListViewController.swift */; };
 		5E23CEC0278C4A9700C39D4B /* RegisterBoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E23CEBF278C4A9700C39D4B /* RegisterBoardViewController.swift */; };
@@ -19,7 +19,13 @@
 		5E412D522789E7AD002163D5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5E412D512789E7AD002163D5 /* Assets.xcassets */; };
 		5E412D552789E7AD002163D5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E412D532789E7AD002163D5 /* LaunchScreen.storyboard */; };
 		5E6E5054278E693700B45D81 /* SendDBModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E6E5053278E693700B45D81 /* SendDBModel.swift */; };
-		5E7E0C8A279B1CB70088608A /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7E0C89279B1CB70088608A /* UIViewController+.swift */; };
+		5E7E0C9D279BD5FE0088608A /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E7E0C9C279BD5FE0088608A /* Login.storyboard */; };
+		5E7E0C9F279BD64A0088608A /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E7E0C9E279BD64A0088608A /* Search.storyboard */; };
+		5E7E0CA1279BD6FC0088608A /* MyList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E7E0CA0279BD6FC0088608A /* MyList.storyboard */; };
+		5E7E0CA3279BD76C0088608A /* RegisterBoard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E7E0CA2279BD76C0088608A /* RegisterBoard.storyboard */; };
+		5E7E0CA5279BD7860088608A /* Setting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E7E0CA4279BD7860088608A /* Setting.storyboard */; };
+		5E7E0CA9279DA2460088608A /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7E0CA8279DA2460088608A /* TabBarViewController.swift */; };
+		5E9266BE279E8AC700E5D67D /* AddressDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9266BD279E8AC700E5D67D /* AddressDataModel.swift */; };
 		5E971860278FE6490080A5AA /* LoadDBModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E97185F278FE6490080A5AA /* LoadDBModel.swift */; };
 		5E971862278FF24E0080A5AA /* AcceptDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E971861278FF24E0080A5AA /* AcceptDataModel.swift */; };
 		5E9718652790FDC60080A5AA /* MyListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9718632790FDC60080A5AA /* MyListTableViewCell.swift */; };
@@ -33,7 +39,7 @@
 /* Begin PBXFileReference section */
 		02378DF0CD104641EBDCF0BE /* Pods-register-snowboard-serial-number.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-register-snowboard-serial-number.debug.xcconfig"; path = "Target Support Files/Pods-register-snowboard-serial-number/Pods-register-snowboard-serial-number.debug.xcconfig"; sourceTree = "<group>"; };
 		5E23CEB7278C353D00C39D4B /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		5E23CEB9278C477A00C39D4B /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		5E23CEB9278C477A00C39D4B /* TabBar.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TabBar.storyboard; sourceTree = "<group>"; };
 		5E23CEBB278C492100C39D4B /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		5E23CEBD278C496A00C39D4B /* MyListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyListViewController.swift; sourceTree = "<group>"; };
 		5E23CEBF278C4A9700C39D4B /* RegisterBoardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterBoardViewController.swift; sourceTree = "<group>"; };
@@ -45,7 +51,13 @@
 		5E412D542789E7AD002163D5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5E412D562789E7AD002163D5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5E6E5053278E693700B45D81 /* SendDBModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendDBModel.swift; sourceTree = "<group>"; };
-		5E7E0C89279B1CB70088608A /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
+		5E7E0C9C279BD5FE0088608A /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
+		5E7E0C9E279BD64A0088608A /* Search.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
+		5E7E0CA0279BD6FC0088608A /* MyList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyList.storyboard; sourceTree = "<group>"; };
+		5E7E0CA2279BD76C0088608A /* RegisterBoard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RegisterBoard.storyboard; sourceTree = "<group>"; };
+		5E7E0CA4279BD7860088608A /* Setting.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Setting.storyboard; sourceTree = "<group>"; };
+		5E7E0CA8279DA2460088608A /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		5E9266BD279E8AC700E5D67D /* AddressDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressDataModel.swift; sourceTree = "<group>"; };
 		5E97185F278FE6490080A5AA /* LoadDBModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadDBModel.swift; sourceTree = "<group>"; };
 		5E971861278FF24E0080A5AA /* AcceptDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcceptDataModel.swift; sourceTree = "<group>"; };
 		5E9718632790FDC60080A5AA /* MyListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyListTableViewCell.swift; sourceTree = "<group>"; };
@@ -103,9 +115,9 @@
 				5ED4E333278BC8AD003ED53F /*  Delegate */,
 				5ED4E334278BC998003ED53F /* Support */,
 				5ED4E337278BCABE003ED53F /* Model */,
-				5ED4E338278BCAC7003ED53F /* View */,
-				5ED4E339278BCAE7003ED53F /* Controller */,
-				5E7E0C88279B1C480088608A /* Extension */,
+				5E7E0C9B279BD5C10088608A /* Storyboard */,
+				5ED4E338278BCAC7003ED53F /* Cell */,
+				5ED4E339278BCAE7003ED53F /* ViewController */,
 			);
 			path = "register-snowboard-serial-number";
 			sourceTree = "<group>";
@@ -119,12 +131,17 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		5E7E0C88279B1C480088608A /* Extension */ = {
+		5E7E0C9B279BD5C10088608A /* Storyboard */ = {
 			isa = PBXGroup;
 			children = (
-				5E7E0C89279B1CB70088608A /* UIViewController+.swift */,
+				5E7E0C9C279BD5FE0088608A /* Login.storyboard */,
+				5E23CEB9278C477A00C39D4B /* TabBar.storyboard */,
+				5E7E0C9E279BD64A0088608A /* Search.storyboard */,
+				5E7E0CA0279BD6FC0088608A /* MyList.storyboard */,
+				5E7E0CA2279BD76C0088608A /* RegisterBoard.storyboard */,
+				5E7E0CA4279BD7860088608A /* Setting.storyboard */,
 			);
-			path = Extension;
+			path = Storyboard;
 			sourceTree = "<group>";
 		};
 		5ED4E333278BC8AD003ED53F /*  Delegate */ = {
@@ -163,30 +180,31 @@
 				5E97BBCD27969A8E003F2045 /* DeleteDBModel.swift */,
 				5E23CEC3278D829500C39D4B /* photoCheckModel.swift */,
 				5E971861278FF24E0080A5AA /* AcceptDataModel.swift */,
+				5E9266BD279E8AC700E5D67D /* AddressDataModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
 		};
-		5ED4E338278BCAC7003ED53F /* View */ = {
+		5ED4E338278BCAC7003ED53F /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				5E23CEB9278C477A00C39D4B /* Main.storyboard */,
 				5E9718632790FDC60080A5AA /* MyListTableViewCell.swift */,
 				5E9718642790FDC60080A5AA /* MyListTableViewCell.xib */,
 			);
-			path = View;
+			path = Cell;
 			sourceTree = "<group>";
 		};
-		5ED4E339278BCAE7003ED53F /* Controller */ = {
+		5ED4E339278BCAE7003ED53F /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
 				5E23CEB7278C353D00C39D4B /* LoginViewController.swift */,
+				5E7E0CA8279DA2460088608A /* TabBarViewController.swift */,
 				5E23CEBB278C492100C39D4B /* SearchViewController.swift */,
 				5E23CEBD278C496A00C39D4B /* MyListViewController.swift */,
 				5E23CEBF278C4A9700C39D4B /* RegisterBoardViewController.swift */,
 				5E97BBD32798F3DB003F2045 /* SettingViewController.swift */,
 			);
-			path = Controller;
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -252,9 +270,14 @@
 			files = (
 				5E9718662790FDC60080A5AA /* MyListTableViewCell.xib in Resources */,
 				5E412D552789E7AD002163D5 /* LaunchScreen.storyboard in Resources */,
+				5E7E0CA1279BD6FC0088608A /* MyList.storyboard in Resources */,
+				5E7E0C9D279BD5FE0088608A /* Login.storyboard in Resources */,
 				5ED4E33B278BCF93003ED53F /* GoogleService-Info.plist in Resources */,
+				5E7E0CA3279BD76C0088608A /* RegisterBoard.storyboard in Resources */,
+				5E7E0C9F279BD64A0088608A /* Search.storyboard in Resources */,
+				5E7E0CA5279BD7860088608A /* Setting.storyboard in Resources */,
 				5E412D522789E7AD002163D5 /* Assets.xcassets in Resources */,
-				5E23CEBA278C477A00C39D4B /* Main.storyboard in Resources */,
+				5E23CEBA278C477A00C39D4B /* TabBar.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -324,9 +347,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5E7E0CA9279DA2460088608A /* TabBarViewController.swift in Sources */,
 				5E97BBD0279860E5003F2045 /* UpdateDBModel.swift in Sources */,
 				5E97BBCE27969A8E003F2045 /* DeleteDBModel.swift in Sources */,
-				5E7E0C8A279B1CB70088608A /* UIViewController+.swift in Sources */,
 				5E9718652790FDC60080A5AA /* MyListTableViewCell.swift in Sources */,
 				5E23CEC0278C4A9700C39D4B /* RegisterBoardViewController.swift in Sources */,
 				5E23CEC4278D829500C39D4B /* photoCheckModel.swift in Sources */,
@@ -337,6 +360,7 @@
 				5E971860278FE6490080A5AA /* LoadDBModel.swift in Sources */,
 				5E23CEBE278C496A00C39D4B /* MyListViewController.swift in Sources */,
 				5E6E5054278E693700B45D81 /* SendDBModel.swift in Sources */,
+				5E9266BE279E8AC700E5D67D /* AddressDataModel.swift in Sources */,
 				5E23CEBC278C492100C39D4B /* SearchViewController.swift in Sources */,
 				5E412D4B2789E7AB002163D5 /* SceneDelegate.swift in Sources */,
 			);
@@ -485,10 +509,11 @@
 				INFOPLIST_FILE = "register-snowboard-serial-number/Support/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = Login;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -498,7 +523,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -515,10 +540,11 @@
 				INFOPLIST_FILE = "register-snowboard-serial-number/Support/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = Login;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -528,7 +554,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

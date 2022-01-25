@@ -17,10 +17,10 @@ class SearchViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemGray6
+        view.backgroundColor = .systemGray5
         searchText.delegate = self
         searchText.placeholder = "シリアルナンバーを入力してください"
-        tableView.backgroundColor = .systemGray6
+        tableView.backgroundColor = .systemGray5
         tableView.register(UINib(nibName: "MyListTableViewCell", bundle: nil), forCellReuseIdentifier: "Cell")
         tableView.delegate = self
         tableView.dataSource = self
@@ -28,7 +28,6 @@ class SearchViewController: UIViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationController?.setNavigationBarHidden(true, animated: false)
     }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
@@ -87,12 +86,12 @@ extension SearchViewController: UITableViewDelegate,UITableViewDataSource{
     
     @objc func discoverButton(_ sender: UIButton) {
         self.loadDB.loadContactAddress(searchWord: (Auth.auth().currentUser?.email)!) { result in
-            let alert = UIAlertController(title:  "注意", message: "こちらのアカウントまで報告お願いします！\n\(result)", preferredStyle: .actionSheet)
+            let alert = UIAlertController(title:  "注意", message: "こちらのアカウントまで報告お願いします！\n\(self.loadDB.addressData[0].contactAddress)", preferredStyle: .actionSheet)
             let cancelAlert = UIAlertAction(title: "キャンセル", style: .cancel) { (action) in
                 self.dismiss(animated: true, completion: nil)
             }
             let copyAlert = UIAlertAction(title: "コピー", style: .default) { (action) in
-                UIPasteboard.general.string = result
+                UIPasteboard.general.string = self.loadDB.addressData[0].contactAddress
             }
             alert.addAction(cancelAlert)
             alert.addAction(copyAlert)

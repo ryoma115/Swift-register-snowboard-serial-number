@@ -28,39 +28,50 @@ class RegisterBoardViewController: UIViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationController?.setNavigationBarHidden(false, animated: false)
     }
     @IBAction func tapImageView(_ sender: Any) {
         showAlert()
     }
     @IBAction func tapRegisterButton(_ sender: Any) {
+        warningLabel.text = ""
         let generater = UINotificationFeedbackGenerator()
         if nameTextField.text == "" || boadBrandTextField.text == "" || SerialNumberTextField.text == ""{
             warningLabel.text = "＊入力欄に誤りがあります"
             generater.notificationOccurred(.error)
         }else{
-            let boardImageData = (boardImage.image?.jpegData(compressionQuality: 0.25))
-            let sendDBModel = SendDBModel(fullName:nameTextField.text!,userID:Auth.auth().currentUser!.uid, userEmail: (Auth.auth().currentUser?.email)!, boardBrand:boadBrandTextField.text!, boardSerialNumber: SerialNumberTextField.text!, boaedImage:boardImageData!)
-            sendDBModel.sendDB { error in
-                if error == false{
-                    self.boardImage.image = UIImage(named:"no-image")
-                    self.nameTextField.text = ""
-                    self.boadBrandTextField.text = ""
-                    self.SerialNumberTextField.text = ""
-                    let indicatorView = UIActivityIndicatorView()
-                    indicatorView.center = self.view.center
-                    indicatorView.style = .large
-                    indicatorView.color = .black
-                    self.view.addSubview(indicatorView)
-                    self.view.bringSubviewToFront(indicatorView)
-                    indicatorView.startAnimating()
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
-                        indicatorView.stopAnimating()
-                        generater.notificationOccurred(.success)
-                        self.navigationController?.popViewController(animated: true)
+            loadDB.doucmentsNumber = []
+            loadDB.searchMatch(boardBrand: boadBrandTextField.text!, boardSerialNumber: SerialNumberTextField.text!) { error in
+                if error{
+                    self.warningLabel.text = "読み込みに失敗しました"
+                }else{
+                    if self.loadDB.doucmentsNumber.count == 0{
+                        let boardImageData = (self.boardImage.image?.jpegData(compressionQuality: 0.25))
+                        let sendDBModel = SendDBModel(fullName:self.nameTextField.text!,userID:Auth.auth().currentUser!.uid, userEmail: (Auth.auth().currentUser?.email)!, boardBrand:self.boadBrandTextField.text!,boardSerialNumber: self.SerialNumberTextField.text!, boaedImage:boardImageData!)
+                        sendDBModel.sendDB { error in
+                            if error == false{
+                                self.boardImage.image = UIImage(named:"no-image")
+                                self.nameTextField.text = ""
+                                self.boadBrandTextField.text = ""
+                                self.SerialNumberTextField.text = ""
+                                let indicatorView = UIActivityIndicatorView()
+                                indicatorView.center = self.view.center
+                                indicatorView.style = .large
+                                indicatorView.color = .black
+                                self.view.addSubview(indicatorView)
+                                self.view.bringSubviewToFront(indicatorView)
+                                indicatorView.startAnimating()
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
+                                    indicatorView.stopAnimating()
+                                    generater.notificationOccurred(.success)
+                                }
+                            }
+                        }
+                    } else {
+                        self.warningLabel.text = "既にこの製品は登録されています"
                     }
                 }
             }
+            
         }
     }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
