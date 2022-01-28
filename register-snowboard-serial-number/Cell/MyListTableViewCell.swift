@@ -18,22 +18,39 @@ class MyListTableViewCell: UITableViewCell {
     @IBOutlet weak var shadowLayer: UIView!
     @IBOutlet weak var lostSwitch: UISwitch!
     @IBOutlet weak var lostLabel: UILabel!
+    @IBOutlet weak var copyButton: UIButton!
+    
+    @IBOutlet weak var firstUpView: UIView!
+    @IBOutlet weak var firstDownView: UIView!
+    @IBOutlet weak var secondUpView: UIView!
+    @IBOutlet weak var secondDownView: UIView!
+    @IBOutlet weak var topStackView: UIStackView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
     }
     
     func setUp(){
         self.backgroundColor = .systemGray5
         
         self.shadowLayer.layer.cornerRadius = 10
-        self.shadowLayer.layer.shadowOffset = CGSize(width: 5.0, height: 3.0)
+        self.shadowLayer.layer.shadowOffset = CGSize(width: 7.0, height: 5.0)
         self.shadowLayer.layer.shadowColor = UIColor.black.cgColor
         self.shadowLayer.layer.shadowOpacity = 0.6
         self.shadowLayer.layer.shadowRadius = 4
         
         self.shadowLayer.layer.borderWidth = 0.5
         self.shadowLayer.layer.borderColor = UIColor(red: 32/255, green: 206/255, blue: 210/255, alpha: 1).cgColor
+        
+        self.firstUpView.backgroundColor = UIColor.systemGray6
+        self.secondUpView.backgroundColor = UIColor.systemGray6
+        self.topStackView.layer.borderWidth = 1.0
+        self.topStackView.layer.borderColor = UIColor.systemGray2.cgColor
+        self.topStackView.layer.cornerRadius = 10.0
+    }
+    @IBAction func copyButton(_ sender: Any) {
+        UIPasteboard.general.string = self.boardSerialNumber.text
     }
 }
+
+

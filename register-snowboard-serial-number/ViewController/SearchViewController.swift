@@ -19,7 +19,7 @@ class SearchViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .systemGray5
         searchText.delegate = self
-        searchText.placeholder = "シリアルナンバーを入力してください"
+        
         tableView.backgroundColor = .systemGray5
         tableView.register(UINib(nibName: "MyListTableViewCell", bundle: nil), forCellReuseIdentifier: "Cell")
         tableView.delegate = self
@@ -114,5 +114,4 @@ extension SearchViewController: UITextFieldDelegate {
         return true
     }
 }
-
 

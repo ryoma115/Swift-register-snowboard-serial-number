@@ -39,14 +39,14 @@ class MyListViewController: UIViewController {
 extension MyListViewController: UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! MyListTableViewCell
+        cell.setUp()
+        cell.selectionStyle = .none
         cell.fullName.text = loadDB.dataSets[indexPath.row].fullName
         cell.dateID.text = String(loadDB.dataSets[indexPath.row].postDate)
         cell.userID.text = loadDB.dataSets[indexPath.row].userID
         cell.boardSerialNumber.text = loadDB.dataSets[indexPath.row].boardSerialNumber
         cell.boardBrand.text = loadDB.dataSets[indexPath.row].boardBrand
         cell.boardImage.sd_setImage(with: URL(string: loadDB.dataSets[indexPath.row].boardImageUrl), completed: nil)
-        cell.setUp()
-        cell.selectionStyle = .none
         
         let addButton = UIButton()
         addButton.setTitle("✖️", for: .normal)
@@ -65,7 +65,6 @@ extension MyListViewController: UITableViewDelegate,UITableViewDataSource{
     @objc func buttonEvemt(_ sender: UIButton) {
         let alert = UIAlertController(title: "注意", message: "本当に削除してもよろしいですか?\n(復元ができなくなります)", preferredStyle: .actionSheet)
         let cancelAlert = UIAlertAction(title: "キャンセル", style: .cancel) { (action) in
-            self.dismiss(animated: true, completion: nil)
         }
         let deleteAlert = UIAlertAction(title: "削除", style: .destructive) { (action) in
             self.deleteDB.deleteDocument(documentID: self.loadDB.dataSets[sender.tag].documentID) { error in

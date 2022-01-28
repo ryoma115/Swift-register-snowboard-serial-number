@@ -12,7 +12,7 @@ class RegisterBoardViewController: UIViewController {
     
     let photoCheckModel = PhotoCheckModel()
     let loadDB = LoadDBModel()
-
+    
     @IBOutlet weak var boardImage: UIImageView!
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var boadBrandTextField: UITextField!
@@ -63,6 +63,9 @@ class RegisterBoardViewController: UIViewController {
                                 DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
                                     indicatorView.stopAnimating()
                                     generater.notificationOccurred(.success)
+                                    let nextStoryboard = UIStoryboard(name: "MyList",bundle: nil)
+                                    guard let nextViewController = nextStoryboard.instantiateInitialViewController() as? MyListViewController else { return }
+                                    self.navigationController?.pushViewController(nextViewController, animated: true)
                                 }
                             }
                         }

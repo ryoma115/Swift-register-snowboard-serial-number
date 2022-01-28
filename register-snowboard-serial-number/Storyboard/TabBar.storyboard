@@ -67,20 +67,5 @@
             </objects>
             <point key="canvasLocation" x="480" y="124"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="C01-z5-jA3">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="r8O-iY-Km1" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="lfN-il-psv">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="chH-k3-dpw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1904.3478260869567" y="45.535714285714285"/>
-        </scene>
     </scenes>
 </document>

@@ -27,15 +27,14 @@ class SettingViewController: UIViewController {
         super.viewDidLoad()
         contactAddressTextField.delegate = self
         guideLabel.text = "現在の連絡先"
-        warningLabel.text = "反映に時間がかかる場合があります"
+        warningLabel.text = "(反映に時間がかかる場合があります)"
+        restrictLabel.text = "*こちらはボードの紛失ボタンがONの状態で、\n発見ボタンが押された時のみ使用されます。\n(登録することを推奨します)"
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        restrictLabel.isHidden = true
         loadDB.loadContactAddress(searchWord: (Auth.auth().currentUser?.email)!) { result in
-            self.restrictLabel.isHidden = true
             if self.loadDB.addressData.count == 0{
-                self.currentAddressLabel.text = "登録されていません"
+                self.currentAddressLabel.text = "現在、登録されていません"
             }else{
                 self.currentAddressLabel.text = self.loadDB.addressData[0].contactAddress
             }
@@ -70,4 +69,3 @@ extension SettingViewController: UITextFieldDelegate {
         return true
     }
 }
-
