@@ -8,7 +8,7 @@
 import UIKit
 
 struct AddressData {
-    let documentID:String
+    let documentID:String?
     let userEmail:String
     let contactAddress:String
 }

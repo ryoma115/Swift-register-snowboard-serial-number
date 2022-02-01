@@ -7,7 +7,13 @@
 
 import UIKit
 
+protocol MyListTableViewCellDelegate: AnyObject {
+    func didTapButton(indexPathNumber:Int)
+}
+
 class MyListTableViewCell: UITableViewCell {
+    
+    var delegate:MyListTableViewCellDelegate?
     
     @IBOutlet weak var boardImage: UIImageView!
     @IBOutlet weak var boardBrand: UILabel!
@@ -19,6 +25,7 @@ class MyListTableViewCell: UITableViewCell {
     @IBOutlet weak var lostSwitch: UISwitch!
     @IBOutlet weak var lostLabel: UILabel!
     @IBOutlet weak var copyButton: UIButton!
+    @IBOutlet weak var deleteButton: UIButton!
     
     @IBOutlet weak var firstUpView: UIView!
     @IBOutlet weak var firstDownView: UIView!
@@ -28,10 +35,19 @@ class MyListTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        selectionStyle = .none
     }
     
-    func setUp(){
+    func setUp(acceptData:AcceptData){
         self.backgroundColor = .systemGray5
+        
+        fullName.text = acceptData.fullName
+        dateID.text = String(acceptData.postDate)
+        userID.text = acceptData.userID
+        boardSerialNumber.text = acceptData.boardSerialNumber
+        boardBrand.text = acceptData.boardBrand
+        boardImage.sd_setImage(with: URL(string: acceptData.boardImageUrl), completed: nil)
+        lostSwitch.isOn = acceptData.lost
         
         self.shadowLayer.layer.cornerRadius = 10
         self.shadowLayer.layer.shadowOffset = CGSize(width: 7.0, height: 5.0)
@@ -47,9 +63,13 @@ class MyListTableViewCell: UITableViewCell {
         self.topStackView.layer.borderWidth = 1.0
         self.topStackView.layer.borderColor = UIColor.systemGray2.cgColor
         self.topStackView.layer.cornerRadius = 10.0
+        
     }
     @IBAction func copyButton(_ sender: Any) {
         UIPasteboard.general.string = self.boardSerialNumber.text
+    }
+    @IBAction func tapDeleteButton(_ sender: Any) {
+        delegate?.didTapButton(indexPathNumber: (sender as AnyObject).tag)
     }
 }
 

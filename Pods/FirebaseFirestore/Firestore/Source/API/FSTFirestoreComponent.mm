@@ -68,7 +68,7 @@ NS_ASSUME_NONNULL_BEGIN
 }
 
 - (NSString *)keyForDatabase:(NSString *)database {
-  return [NSString stringWithFormat:@"%@|%@", self.app.name, database];
+    return [NSString stringWithFormat:@"%@|%@", self.app.name, database];
 }
 
 #pragma mark - FSTInstanceProvider Conformance

@@ -1,20 +1,21 @@
 //
-//  LoadDBModel.swift
+//  MyListViewModel.swift
 //  register-snowboard-serial-number
 //
-//  Created by N. Ryoma on 2022/01/13.
+//  Created by N. Ryoma on 2022/01/29.
 //
 
 import UIKit
-import Firebase
 import FirebaseFirestore
+import FirebaseAuth
 
-class LoadDBModel{
+final class MyListViewModel {
     
-    let db = Firestore.firestore()
     var dataSets = [AcceptData]()
+    let db = Firestore.firestore()
     
-    func loadUserData(searchWord:String, searchType:String, completion: @escaping (Bool)-> ()){
+    func fetchData(searchWord:String, searchType:String,completion: @escaping (Bool)-> ()) {
+        dataSets = []
         db.collection("snowboards").whereField(searchType, isEqualTo: searchWord).getDocuments { querySnapshot, error in
             if error != nil{
                 print(error.debugDescription)
@@ -38,5 +39,21 @@ class LoadDBModel{
             completion(false)
         }
     }
+    func deleteDocument(documentID:String, completion: @escaping (Bool)-> ()){
+        db.collection("snowboards").document(documentID).delete { error in
+            if error != nil{
+                print("Error removing document: \(error.debugDescription)")
+                completion(true)
+            }else{
+                print("Document successfully removed!")
+            }
+            completion(false)
+        }
+    }
+    func changeTrue(documentID:String){
+        db.collection("snowboards").document(documentID).updateData(["lost":true])
+    }
+    func changeFalse(documentID:String){
+        db.collection("snowboards").document(documentID).updateData(["lost":false])
+    }
 }
-

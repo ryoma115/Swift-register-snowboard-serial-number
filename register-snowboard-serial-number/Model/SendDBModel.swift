@@ -53,9 +53,4 @@ class SendDBModel{
         }
         completion(false)
     }
-    
-    func sendAddress(){
-        self.db.collection("contactAddresses").document().setData(["userEmail":userEmail as Any,"contactAddress":contactAddress as Any])
-        
-    }
 }

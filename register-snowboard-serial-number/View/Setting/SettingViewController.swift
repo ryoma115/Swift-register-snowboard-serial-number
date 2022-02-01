@@ -13,56 +13,63 @@ import FirebaseAuth
 class SettingViewController: UIViewController {
     
     let db = Firestore.firestore()
+    let viewModel = SettingViewModel()
     let loadDB = LoadDBModel()
-    let updateDB = UpdateDBModel()
     
-    @IBOutlet weak var contactAddressTextField: UITextField!
+// MARK: IBOutlet
+    @IBOutlet private var contactAddressTextField: UITextField! {
+        didSet{
+            contactAddressTextField.delegate = self
+        }
+    }
     @IBOutlet weak var guideLabel: UILabel!
-    
     @IBOutlet weak var warningLabel: UILabel!
     @IBOutlet weak var currentAddressLabel: UILabel!
     @IBOutlet weak var restrictLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        contactAddressTextField.delegate = self
         guideLabel.text = "現在の連絡先"
         warningLabel.text = "(反映に時間がかかる場合があります)"
         restrictLabel.text = "*こちらはボードの紛失ボタンがONの状態で、\n発見ボタンが押された時のみ使用されます。\n(登録することを推奨します)"
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        loadDB.loadContactAddress(searchWord: (Auth.auth().currentUser?.email)!) { result in
-            if self.loadDB.addressData.count == 0{
+        restrictLabel.text = ""
+        viewModel.loadContactAddress(searchWord: (Auth.auth().currentUser?.email)!)
+        { result in
+            if self.viewModel.addressData.count == 0{
                 self.currentAddressLabel.text = "現在、登録されていません"
             }else{
-                self.currentAddressLabel.text = self.loadDB.addressData[0].contactAddress
+                self.currentAddressLabel.text = self.viewModel.addressData[0].contactAddress
             }
         }
-        
     }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
-    @IBAction func settingButton(_ sender: Any) {
+    @IBAction private func settingButton(_ sender: Any) {
         if contactAddressTextField.text == ""{
             restrictLabel.text = "連絡先が入力されていません"
         }else{
-            loadDB.loadContactAddress(searchWord: (Auth.auth().currentUser?.email)!) {result in
+            viewModel.loadContactAddress(searchWord: (Auth.auth().currentUser?.email)!) {result in
                 if result == false{
-                    let sendDB = SendDBModel(userEmail: (Auth.auth().currentUser?.email)!, contactAddress: self.contactAddressTextField.text!)
-                    sendDB.sendAddress()
+                    let getData = AcceptAdressData(contactAddress: self.contactAddressTextField.text!, userEmail:(Auth.auth().currentUser?.email)!)
+                    self.viewModel.sendAddress(getData)
                     self.restrictLabel.text = "登録が完了しました！"
                 } else {
-                    self.updateDB.ContactAddress(documentID: self.loadDB.addressData[0].documentID, chageAddress: self.contactAddressTextField.text!)
+                    self.viewModel.updateAddress(documentID: self.viewModel.addressData[0].documentID!, chageAddress: self.contactAddressTextField.text!)
                     self.restrictLabel.text = "変更が完了しました！"
                 }
+                self.currentAddressLabel.text = self.contactAddressTextField.text
                 self.contactAddressTextField.text = ""
                 self.restrictLabel.isHidden = false
             }
         }
     }
 }
+
+//MARK: UITextFieldDelegate
 extension SettingViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         contactAddressTextField.resignFirstResponder()
