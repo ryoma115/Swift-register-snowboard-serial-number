@@ -14,6 +14,11 @@ class MyListViewController: UIViewController {
     let viewModel = MyListViewModel()
     
 // MARK: IBOutlet
+    @IBOutlet weak var tabBar: UITabBar! {
+        didSet{
+            tabBar.delegate = self
+        }
+    }
     @IBOutlet private var tableView: UITableView! {
         didSet {
             tableView.dataSource = self
@@ -92,5 +97,28 @@ extension MyListViewController: MyListTableViewCellDelegate {
         alert.addAction(cancelAlert)
         alert.addAction(deleteAlert)
         self.present(alert, animated: true, completion: nil)
+    }
+}
+extension MyListViewController: UITabBarDelegate {
+    func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
+        switch item.tag{
+        case 1:
+            let storyboard: UIStoryboard = UIStoryboard(name: "Search", bundle: nil)
+            let viewController = storyboard.instantiateViewController(withIdentifier: "SearchViewController")
+            self.navigationController?.pushViewController(viewController, animated: false)
+        case 2:
+            let storyboard: UIStoryboard = UIStoryboard(name: "MyList", bundle: nil)
+            let viewController = storyboard.instantiateViewController(withIdentifier: "MyListViewController")
+            self.navigationController?.pushViewController(viewController, animated: false)
+        case 3:
+            let storyboard: UIStoryboard = UIStoryboard(name: "Add", bundle: nil)
+            let viewController = storyboard.instantiateViewController(withIdentifier: "AddViewController")
+            self.navigationController?.pushViewController(viewController, animated: false)
+        case 4:
+            let storyboard: UIStoryboard = UIStoryboard(name: "Setting", bundle: nil)
+            let viewController = storyboard.instantiateViewController(withIdentifier: "SettingViewController")
+            self.navigationController?.pushViewController(viewController, animated: false)
+        default : return
+        }
     }
 }

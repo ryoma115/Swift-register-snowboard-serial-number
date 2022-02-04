@@ -24,15 +24,15 @@ final class LoginViewModel{
     }
 
     func signIn(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!, completion: @escaping (SignInResponse)-> ()) {
-        guard let auth = user.authentication else {
+        let auth = user.authentication
+        if auth == nil {
             completion(.authNil)
-            return
         }
+        
         if error != nil{
             completion(.signInFailure)
-            return
         }
-        let credential = GoogleAuthProvider.credential(withIDToken: auth.idToken, accessToken: auth.accessToken)
+        let credential = GoogleAuthProvider.credential(withIDToken: auth!.idToken, accessToken: auth!.accessToken)
         Auth.auth().signIn(with: credential) { authResult, error in
             if error != nil{
                 self.generaterSetUp(generaterType: .error)

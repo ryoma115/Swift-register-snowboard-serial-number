@@ -18,7 +18,6 @@ class LoginViewController: UIViewController {
         view.backgroundColor = UIColor.systemGray5
         GIDSignIn.sharedInstance()?.presentingViewController = self
         GIDSignIn.sharedInstance()?.delegate = self
-        self.navigationController?.isToolbarHidden = true
     }
     
     @IBAction func googleSignInButton(_ sender: Any) {
@@ -39,10 +38,10 @@ extension LoginViewController: GIDSignInDelegate{
                 print("AuthSignInFailure")
             case .success:
                 print("Google SignIn Success!")
-                let nextStoryboard:UIStoryboard = UIStoryboard(name: "TabBar",bundle: nil)
-                guard let nextViewController = nextStoryboard.instantiateInitialViewController() as? TabBarViewController else { return }
-                nextViewController.modalPresentationStyle = .fullScreen
-                self.present(nextViewController, animated: true)
+                let storyboard: UIStoryboard = UIStoryboard(name: "MyList", bundle: nil)
+                let viewController = storyboard.instantiateViewController(withIdentifier: "MyListViewController")
+                self.navigationController?.pushViewController(viewController, animated: true)
+                
             }
         }
     }

@@ -17,6 +17,12 @@ class SettingViewController: UIViewController {
     let loadDB = LoadDBModel()
     
 // MARK: IBOutlet
+    
+    @IBOutlet weak var tabBar: UITabBar!{
+        didSet{
+            tabBar.delegate = self
+        }
+    }
     @IBOutlet private var contactAddressTextField: UITextField! {
         didSet{
             contactAddressTextField.delegate = self
@@ -29,6 +35,7 @@ class SettingViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.setNavigationBarHidden(true, animated: false)
         guideLabel.text = "現在の連絡先"
         warningLabel.text = "(反映に時間がかかる場合があります)"
         restrictLabel.text = "*こちらはボードの紛失ボタンがONの状態で、\n発見ボタンが押された時のみ使用されます。\n(登録することを推奨します)"
@@ -74,5 +81,30 @@ extension SettingViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         contactAddressTextField.resignFirstResponder()
         return true
+    }
+}
+
+extension SettingViewController: UITabBarDelegate {
+    func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
+        UITabBar.appearance().tintColor = UIColor(red: 32, green: 206, blue: 210, alpha: 1.0)
+        switch item.tag{
+        case 1:
+            let storyboard: UIStoryboard = UIStoryboard(name: "Search", bundle: nil)
+            let viewController = storyboard.instantiateViewController(withIdentifier: "SearchViewController")
+            self.navigationController?.pushViewController(viewController, animated: false)
+        case 2:
+            let storyboard: UIStoryboard = UIStoryboard(name: "MyList", bundle: nil)
+            let viewController = storyboard.instantiateViewController(withIdentifier: "MyListViewController")
+            self.navigationController?.pushViewController(viewController, animated: false)
+        case 3:
+            let storyboard: UIStoryboard = UIStoryboard(name: "Add", bundle: nil)
+            let viewController = storyboard.instantiateViewController(withIdentifier: "AddViewController")
+            self.navigationController?.pushViewController(viewController, animated: false)
+        case 4:
+            let storyboard: UIStoryboard = UIStoryboard(name: "Setting", bundle: nil)
+            let viewController = storyboard.instantiateViewController(withIdentifier: "SettingViewController")
+            self.navigationController?.pushViewController(viewController, animated: false)
+        default : return
+        }
     }
 }

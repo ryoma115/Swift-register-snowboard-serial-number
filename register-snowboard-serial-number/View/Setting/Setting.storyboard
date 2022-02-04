@@ -8,10 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--設定-->
+        <!--Setting View Controller-->
         <scene sceneID="DAO-Ns-pe6">
             <objects>
-                <viewController id="ekJ-9I-EtN" customClass="SettingViewController" customModule="register_snowboard_serial_number" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SettingViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ekJ-9I-EtN" customClass="SettingViewController" customModule="register_snowboard_serial_number" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="oO0-Iw-CL1">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -67,10 +67,10 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7km-OD-Vyf">
-                                        <rect key="frame" x="100" y="114" width="174" height="44"/>
+                                        <rect key="frame" x="80" y="114" width="214" height="44"/>
                                         <color key="backgroundColor" red="0.12549019610000001" green="0.80784313730000001" blue="0.82352941180000006" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="44" id="SA7-If-Uwi"/>
+                                            <constraint firstAttribute="height" constant="44" id="epY-7l-ZQp"/>
                                         </constraints>
                                         <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title="Button"/>
@@ -86,11 +86,25 @@
                                     <constraint firstItem="xtA-eQ-HCm" firstAttribute="leading" secondItem="9TS-lM-4hO" secondAttribute="leading" id="Alc-TL-siO"/>
                                     <constraint firstAttribute="trailing" secondItem="xtA-eQ-HCm" secondAttribute="trailing" id="EGe-DC-htK"/>
                                     <constraint firstAttribute="trailing" secondItem="AQA-uP-KoU" secondAttribute="trailing" id="EnO-sn-vGz"/>
-                                    <constraint firstItem="7km-OD-Vyf" firstAttribute="leading" secondItem="9TS-lM-4hO" secondAttribute="leading" constant="100" id="Nt2-ci-v9u"/>
+                                    <constraint firstItem="7km-OD-Vyf" firstAttribute="top" secondItem="AQA-uP-KoU" secondAttribute="bottom" constant="40" id="JYu-0E-dZc"/>
+                                    <constraint firstItem="7km-OD-Vyf" firstAttribute="leading" secondItem="9TS-lM-4hO" secondAttribute="leading" constant="80" id="Sj0-aZ-E6C"/>
+                                    <constraint firstAttribute="trailing" secondItem="7km-OD-Vyf" secondAttribute="trailing" constant="80" id="n8F-wG-QiL"/>
                                     <constraint firstItem="AQA-uP-KoU" firstAttribute="leading" secondItem="9TS-lM-4hO" secondAttribute="leading" id="p3h-vo-1tl"/>
-                                    <constraint firstAttribute="trailing" secondItem="7km-OD-Vyf" secondAttribute="trailing" constant="100" id="qWV-MO-GuA"/>
                                 </constraints>
                             </stackView>
+                            <tabBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cKs-3D-ZHo">
+                                <rect key="frame" x="0.0" y="764" width="414" height="49"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="49" id="oVC-7o-jTR"/>
+                                </constraints>
+                                <items>
+                                    <tabBarItem tag="1" title="調べる" image="magnifyingglass" catalog="system" id="Tbo-EU-A7R"/>
+                                    <tabBarItem tag="2" title="マイリスト" image="person.fill" catalog="system" id="uQ7-ec-dNj"/>
+                                    <tabBarItem tag="3" title="登録" image="plus.square.fill.on.square.fill" catalog="system" id="M4z-MG-fa0"/>
+                                    <tabBarItem tag="4" title="設定" image="wrench.fill" catalog="system" id="KNz-Eu-WcO"/>
+                                </items>
+                            </tabBar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="fqv-AO-c0T"/>
                         <color key="backgroundColor" systemColor="systemGray6Color"/>
@@ -101,10 +115,12 @@
                             <constraint firstItem="9TS-lM-4hO" firstAttribute="centerX" secondItem="oO0-Iw-CL1" secondAttribute="centerX" id="X1e-9C-iZc"/>
                             <constraint firstItem="mbz-Ei-V6a" firstAttribute="leading" secondItem="fqv-AO-c0T" secondAttribute="leading" constant="20" id="cvf-My-K8q"/>
                             <constraint firstItem="9TS-lM-4hO" firstAttribute="leading" secondItem="fqv-AO-c0T" secondAttribute="leading" constant="20" id="dDa-Jd-foJ"/>
+                            <constraint firstItem="cKs-3D-ZHo" firstAttribute="leading" secondItem="fqv-AO-c0T" secondAttribute="leading" id="e93-Kt-918"/>
+                            <constraint firstAttribute="trailing" secondItem="cKs-3D-ZHo" secondAttribute="trailing" id="gln-D0-axg"/>
+                            <constraint firstItem="fqv-AO-c0T" firstAttribute="bottom" secondItem="cKs-3D-ZHo" secondAttribute="bottom" id="hLs-FS-dgw"/>
                             <constraint firstItem="fqv-AO-c0T" firstAttribute="trailing" secondItem="mbz-Ei-V6a" secondAttribute="trailing" constant="20" id="pB3-lk-GMR"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="設定" image="wrench.fill" catalog="system" id="9UZ-eh-V4f"/>
                     <navigationItem key="navigationItem" id="qEJ-S3-Mj1"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
@@ -113,6 +129,7 @@
                         <outlet property="currentAddressLabel" destination="d7W-ib-Ade" id="8Au-en-X2F"/>
                         <outlet property="guideLabel" destination="bS3-bX-iW4" id="hzu-ul-B2S"/>
                         <outlet property="restrictLabel" destination="AQA-uP-KoU" id="ipw-nI-aVl"/>
+                        <outlet property="tabBar" destination="cKs-3D-ZHo" id="Qyp-je-uQs"/>
                         <outlet property="warningLabel" destination="iXe-sy-Uvq" id="mWi-zw-dvG"/>
                     </connections>
                 </viewController>
@@ -140,6 +157,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="magnifyingglass" catalog="system" width="128" height="115"/>
+        <image name="person.fill" catalog="system" width="128" height="120"/>
+        <image name="plus.square.fill.on.square.fill" catalog="system" width="128" height="113"/>
         <image name="wrench.fill" catalog="system" width="128" height="125"/>
         <systemColor name="systemGray6Color">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

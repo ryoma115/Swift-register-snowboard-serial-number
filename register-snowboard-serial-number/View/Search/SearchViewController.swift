@@ -12,7 +12,12 @@ class SearchViewController: UIViewController {
     
     let viewModel = SearchViewModel()
     
-// MARK: IBOutlet
+    @IBOutlet weak var tabBar: UITabBar! {
+        didSet{
+            tabBar.delegate = self
+        }
+    }
+    // MARK: IBOutlet
     @IBOutlet private var tableView: UITableView! {
         didSet {
             tableView.backgroundColor = .systemGray5
@@ -31,7 +36,9 @@ class SearchViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.setNavigationBarHidden(true, animated: false)
         view.backgroundColor = .systemGray5
+        
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -118,3 +125,26 @@ extension SearchViewController:SearchTableViewCellDelegate {
     }
 }
 
+extension SearchViewController: UITabBarDelegate {
+    func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
+        switch item.tag{
+        case 1:
+            let storyboard: UIStoryboard = UIStoryboard(name: "Search", bundle: nil)
+            let viewController = storyboard.instantiateViewController(withIdentifier: "SearchViewController")
+            self.navigationController?.pushViewController(viewController, animated: false)
+        case 2:
+            let storyboard: UIStoryboard = UIStoryboard(name: "MyList", bundle: nil)
+            let viewController = storyboard.instantiateViewController(withIdentifier: "MyListViewController")
+            self.navigationController?.pushViewController(viewController, animated: false)
+        case 3:
+            let storyboard: UIStoryboard = UIStoryboard(name: "Add", bundle: nil)
+            let viewController = storyboard.instantiateViewController(withIdentifier: "AddViewController")
+            self.navigationController?.pushViewController(viewController, animated: false)
+        case 4:
+            let storyboard: UIStoryboard = UIStoryboard(name: "Setting", bundle: nil)
+            let viewController = storyboard.instantiateViewController(withIdentifier: "SettingViewController")
+            self.navigationController?.pushViewController(viewController, animated: false)
+        default : return
+        }
+    }
+}
