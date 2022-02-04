@@ -10,36 +10,36 @@ import Firebase
 import FirebaseFirestore
 import FirebaseAuth
 
-class SettingViewController: UIViewController {
+final class SettingViewController: UIViewController {
     
 // MARK: IBOutlet
-    @IBOutlet private var contactAddressTextField: UITextField! {
+    @IBOutlet private weak var contactAddressTextField: UITextField! {
         didSet{
             contactAddressTextField.delegate = self
         }
     }
-    @IBOutlet private var guideLabel: UILabel! {
+    @IBOutlet private weak var guideLabel: UILabel! {
         didSet{
             guideLabel.text = "現在の連絡先"
         }
     }
-    @IBOutlet private var warningLabel: UILabel! {
+    @IBOutlet private weak var warningLabel: UILabel! {
         didSet{
             warningLabel.text = "(反映に時間がかかる場合があります)"
         }
     }
-    @IBOutlet private var currentAddressLabel: UILabel!
-    @IBOutlet private var restrictLabel: UILabel! {
+    @IBOutlet private weak var currentAddressLabel: UILabel!
+    @IBOutlet private weak var restrictLabel: UILabel! {
         didSet{
             restrictLabel.text = "*こちらはボードの紛失ボタンがONの状態で、\n発見ボタンが押された時のみ使用されます。\n(登録することを推奨します)"
         }
     }
-    @IBOutlet private var settingButton: UIButton! {
+    @IBOutlet private weak var settingButton: UIButton! {
         didSet{
             settingButton.layer.cornerRadius = 10.0
         }
     }
-    @IBOutlet private var tabBar: UITabBar!{
+    @IBOutlet private weak var tabBar: UITabBar!{
         didSet{
             tabBar.delegate = self
         }

@@ -9,10 +9,10 @@ import UIKit
 import FirebaseAuth
 import SDWebImage
 
-class MyListViewController: UIViewController {
+final class MyListViewController: UIViewController {
     
 // MARK: IBOutlet
-    @IBOutlet private var tableView: UITableView! {
+    @IBOutlet private weak var tableView: UITableView! {
         didSet {
             tableView.dataSource = self
             tableView.delegate = self
@@ -21,7 +21,7 @@ class MyListViewController: UIViewController {
             tableView.backgroundColor = .systemGray5
         }
     }
-    @IBOutlet private var tabBar: UITabBar! {
+    @IBOutlet private weak var tabBar: UITabBar! {
         didSet{
             tabBar.delegate = self
         }

@@ -8,26 +8,26 @@
 import UIKit
 import FirebaseAuth
 
-class SearchViewController: UIViewController {
+final class SearchViewController: UIViewController {
     
 // MARK: IBOutlet
-    @IBOutlet private var searchText: UITextField! {
+    @IBOutlet private weak var searchText: UITextField! {
         didSet {
             searchText.delegate = self
         }
     }
-    @IBOutlet weak var searchButton: UIButton! {
+    @IBOutlet private weak var searchButton: UIButton! {
         didSet{
             searchButton.layer.cornerRadius = 4.0
         }
     }
-    @IBOutlet private var warningLabel: UILabel!
-    @IBOutlet private var tabBar: UITabBar! {
+    @IBOutlet private weak var warningLabel: UILabel!
+    @IBOutlet private weak var tabBar: UITabBar! {
         didSet{
             tabBar.delegate = self
         }
     }
-    @IBOutlet private var tableView: UITableView! {
+    @IBOutlet private weak var tableView: UITableView! {
         didSet {
             tableView.backgroundColor = .systemGray5
             tableView.register(UINib(nibName: "SearchTableViewCell", bundle: nil), forCellReuseIdentifier: "Cell")

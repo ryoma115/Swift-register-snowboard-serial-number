@@ -18,21 +18,21 @@ class SearchTableViewCell: UITableViewCell {
     var delegate: SearchTableViewCellDelegate?
 
 //MARK: @IBOutlet
-    @IBOutlet private var boardImage: UIImageView!
-    @IBOutlet private var boardBrand: UILabel!
-    @IBOutlet private var boardSerialNumber: UILabel!
-    @IBOutlet private var fullName: UILabel!
-    @IBOutlet private var userID: UILabel!
-    @IBOutlet private var dateID: UILabel!
-    @IBOutlet private var shadowLayer: UIView!
+    @IBOutlet private weak var boardImage: UIImageView!
+    @IBOutlet private weak var boardBrand: UILabel!
+    @IBOutlet private weak var boardSerialNumber: UILabel!
+    @IBOutlet private weak var fullName: UILabel!
+    @IBOutlet private weak var userID: UILabel!
+    @IBOutlet private weak var dateID: UILabel!
+    @IBOutlet private weak var shadowLayer: UIView!
     @IBOutlet weak var foundButton: UIButton!
-    @IBOutlet private var copyButton: UIButton!
+    @IBOutlet private weak var copyButton: UIButton!
     
-    @IBOutlet private var firstUpView: UIView!
-    @IBOutlet private var firstDownView: UIView!
-    @IBOutlet private var secondUpView: UIView!
-    @IBOutlet private var secondDownView: UIView!
-    @IBOutlet private var topStackView: UIStackView!
+    @IBOutlet private weak var firstUpView: UIView!
+    @IBOutlet private weak var firstDownView: UIView!
+    @IBOutlet private weak var secondUpView: UIView!
+    @IBOutlet private weak var secondDownView: UIView!
+    @IBOutlet private weak var topStackView: UIStackView!
     
     override func awakeFromNib() {
         super.awakeFromNib()

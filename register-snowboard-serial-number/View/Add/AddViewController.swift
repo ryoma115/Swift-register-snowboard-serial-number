@@ -8,36 +8,36 @@
 import UIKit
 import FirebaseAuth
 
-class AddViewController: UIViewController {
+final class AddViewController: UIViewController {
 
 //MARK: IBOutlet
-    @IBOutlet private var boardImage: UIImageView! {
+    @IBOutlet private weak var boardImage: UIImageView! {
         didSet{
             boardImage.image = UIImage(named: "no-image")
         }
     }
-    @IBOutlet private var nameTextField: UITextField! {
+    @IBOutlet private weak var nameTextField: UITextField! {
         didSet{
             nameTextField.delegate = self
         }
     }
-    @IBOutlet private var boadBrandTextField: UITextField! {
+    @IBOutlet private weak var boadBrandTextField: UITextField! {
         didSet{
             boadBrandTextField.delegate = self
         }
     }
-    @IBOutlet private var SerialNumberTextField: UITextField! {
+    @IBOutlet private weak var SerialNumberTextField: UITextField! {
         didSet{
             SerialNumberTextField.delegate = self
         }
     }
-    @IBOutlet private var addButton: UIButton! {
+    @IBOutlet private weak var addButton: UIButton! {
         didSet{
             addButton.layer.cornerRadius = 10.0
         }
     }
-    @IBOutlet private var warningLabel: UILabel!
-    @IBOutlet private var tabBar: UITabBar! {
+    @IBOutlet private weak var warningLabel: UILabel!
+    @IBOutlet private weak var tabBar: UITabBar! {
         didSet{
             tabBar.delegate = self
         }

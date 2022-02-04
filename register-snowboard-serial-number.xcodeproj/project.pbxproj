@@ -174,8 +174,8 @@
 			isa = PBXGroup;
 			children = (
 				5E971861278FF24E0080A5AA /* AcceptDataModel.swift */,
-				5E9266BD279E8AC700E5D67D /* AddressDataModel.swift */,
 				5EAC2FE727A7C1E0007E5B32 /* AcceptAdressDataModel.swift */,
+				5E9266BD279E8AC700E5D67D /* AddressDataModel.swift */,
 				5E57E71C27AB7F6F0045B2F4 /* SendBoardModel.swift */,
 			);
 			path = Model;

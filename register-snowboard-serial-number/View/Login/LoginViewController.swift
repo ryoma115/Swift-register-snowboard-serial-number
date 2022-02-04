@@ -9,7 +9,7 @@ import UIKit
 import GoogleSignIn
 import FirebaseAuth
 
-class LoginViewController: UIViewController {
+final class LoginViewController: UIViewController {
     
     private let viewModel = LoginViewModel()
     
@@ -21,7 +21,7 @@ class LoginViewController: UIViewController {
     }
     
 //MARK: @IBAction
-    @IBAction func googleSignInButton(_ sender: Any) {
+    @IBAction private func googleSignInButton(_ sender: Any) {
         viewModel.googleSignIn()
     }
 }
