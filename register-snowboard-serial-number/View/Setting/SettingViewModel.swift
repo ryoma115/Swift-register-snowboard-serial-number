@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import Firebase
 import FirebaseFirestore
 
 final class SettingViewModel {
@@ -35,9 +34,11 @@ final class SettingViewModel {
             }
         }
     }
+    
     func sendAddress(_ acceptData:AcceptAdressData){
         self.db.collection("contactAddresses").document().setData(["userEmail":acceptData.userEmail as Any,"contactAddress":acceptData.contactAddress as Any])
     }
+    
     func updateAddress(documentID:String,chageAddress:String){
         db.collection("contactAddresses").document(documentID).updateData(["contactAddress":chageAddress])
     }

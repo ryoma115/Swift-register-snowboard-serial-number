@@ -12,6 +12,7 @@ import SDWebImage
 final class MyListViewController: UIViewController {
     
 // MARK: IBOutlet
+    
     @IBOutlet private weak var tableView: UITableView! {
         didSet {
             tableView.dataSource = self
@@ -35,7 +36,8 @@ final class MyListViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: false)
-        viewModel.fetchData(searchWord: (Auth.auth().currentUser?.email)!, searchType: "userEmail") { error in
+        guard let auth = Auth.auth().currentUser  else { return }
+        viewModel.fetchData(searchWord: auth.email ?? "", searchType: "userEmail") { error in
             if error == false {
                 self.tableView.reloadData()
             }
@@ -43,8 +45,10 @@ final class MyListViewController: UIViewController {
     }
 }
 
-//MARK: UITableViewDelegate,UITableViewDataSource
+// MARK: UITableViewDelegate,UITableViewDataSource
+
 extension MyListViewController: UITableViewDelegate,UITableViewDataSource{
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! MyListTableViewCell
         cell.delegate = self
@@ -58,23 +62,12 @@ extension MyListViewController: UITableViewDelegate,UITableViewDataSource{
         
         return cell
     }
-    @objc func changeSwitch(_ sender: UISwitch) {
-        if sender.isOn{
-            viewModel.changeTrue(documentID: viewModel.dataSets[sender.tag].documentID)
-        }else{
-            viewModel.changeFalse(documentID: viewModel.dataSets[sender.tag].documentID)
-        }
-    }
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.dataSets.count
-    }
 }
 
-//MARK: MyListTableViewCellDelegate
+// MARK: MyListTableViewCellDelegate
+
 extension MyListViewController: MyListTableViewCellDelegate {
+    
     func didTapButton(indexPathNumber: Int) {
         let alert = UIAlertController(title: "注意", message: "本当に削除してもよろしいですか?\n(復元ができなくなります)", preferredStyle: .actionSheet)
         let cancelAlert = UIAlertAction(title: "キャンセル", style: .cancel) { (action) in
@@ -86,7 +79,8 @@ extension MyListViewController: MyListTableViewCellDelegate {
                 }else{
                     print("launch load")
                     self.viewModel.dataSets = []
-                    self.viewModel.fetchData(searchWord: (Auth.auth().currentUser?.email)!, searchType: "userEmail") { error in
+                    guard let auth = Auth.auth().currentUser  else { return }
+                    self.viewModel.fetchData(searchWord: auth.email ?? "", searchType: "userEmail") { error in
                         if error == false {
                             self.tableView.reloadData()
                         }
@@ -100,7 +94,8 @@ extension MyListViewController: MyListTableViewCellDelegate {
     }
 }
 
-//MARK: UITabBarDelegate
+// MARK: UITabBarDelegate
+
 extension MyListViewController: UITabBarDelegate {
     func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
         switch item.tag{
@@ -122,5 +117,24 @@ extension MyListViewController: UITabBarDelegate {
             self.navigationController?.pushViewController(viewController, animated: false)
         default : return
         }
+    }
+}
+
+extension MyListViewController {
+    
+    @objc func changeSwitch(_ sender: UISwitch) {
+        if sender.isOn{
+            viewModel.changeTrue(documentID: viewModel.dataSets[sender.tag].documentID)
+        }else{
+            viewModel.changeFalse(documentID: viewModel.dataSets[sender.tag].documentID)
+        }
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return viewModel.dataSets.count
     }
 }

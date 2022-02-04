@@ -41,30 +41,25 @@ final class AddViewModel {
                 return
             }
             for document in querySnapshot!.documents{
-                self.documentMatches.append("matche")
+                self.documentMatches.append(document.documentID)
             }
             completion(false)
         }
-    }
-    func generaterSetUp(generaterType:UINotificationFeedbackGenerator.FeedbackType) {
-        let generater = UINotificationFeedbackGenerator()
-        generater.notificationOccurred(generaterType)
     }
     func sendDB(sendData:SendBoardModel,completion: @escaping (Bool)-> ()){
         let storage = Storage.storage()
         let storageUrl = storage.reference().child("board_name")
         let boardUrl = storageUrl.child("\(UUID().uuidString + String(Date().timeIntervalSince1970)).jpg")
-        boardUrl.putData(sendData.boardImage, metadata: nil) { metadata, error in
+        boardUrl.putData(sendData.boardImage!, metadata: nil) { metadata, error in
             if error != nil{
                 print("SendDBModel putData error")
                 completion(true)
             }
-            
             boardUrl.downloadURL { [self] url, error in
                 if error != nil{
                     print("SendDBModel downloadURL error")
                 }
-                self.db.collection("snowboards").document().setData(["fullName":sendData.fullName,"userID":sendData.userID,"userEmail":sendData.userEmail,"boardBrand":sendData.boardBrand,"boardSerialNumber":sendData.boardSerialNumber,"boardImageUrl":url?.absoluteString as Any,"postDate":Date().timeIntervalSince1970,"lost": false])
+                self.db.collection("snowboards").document().setData(["fullName":sendData.fullName as Any,"userID":sendData.userID,"userEmail":sendData.userEmail,"boardBrand":sendData.boardBrand as Any,"boardSerialNumber":sendData.boardSerialNumber,"boardImageUrl":url?.absoluteString as Any,"postDate":Date().timeIntervalSince1970,"lost": false])
             }
         }
         completion(false)

@@ -25,21 +25,21 @@ final class SearchViewModel {
     func searchData(searchWord:String,completion: @escaping (response)-> ()) {
         dataSets = []
         loadUserData(searchWord: searchWord, searchType: "boardSerialNumber") { error in
-            if error{
+            if error {
                 completion(.loadError)
                 return
             }
-            if self.dataSets.count == 0{
+            if self.dataSets.count == 0 {
                 completion(.notFound)
             } else {
                 completion(.Found)
             }
         }
     }
+    
     func loadUserData(searchWord:String, searchType:String, completion: @escaping (Bool)-> ()){
         db.collection("snowboards").whereField(searchType, isEqualTo: searchWord).getDocuments { querySnapshot, error in
             if error != nil{
-                print(error.debugDescription)
                 completion(true)
                 return
             }
@@ -60,6 +60,7 @@ final class SearchViewModel {
             completion(false)
         }
     }
+    
     func loadContactAddress(searchWord:String,completion: @escaping (response) -> ()){
         db.collection("contactAddresses").whereField("userEmail", isEqualTo:searchWord).getDocuments { querySnapshot, error in
             if error != nil{

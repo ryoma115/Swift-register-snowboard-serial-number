@@ -8,7 +8,8 @@
 import UIKit
 import SDWebImage
 
-//MARK: protocol
+// MARK: protocol
+
 protocol SearchTableViewCellDelegate:AnyObject {
     func didTapButton(indexPathNumber:Int)
 }
@@ -17,7 +18,8 @@ class SearchTableViewCell: UITableViewCell {
     
     var delegate: SearchTableViewCellDelegate?
 
-//MARK: @IBOutlet
+// MARK: @IBOutlet
+    
     @IBOutlet private weak var boardImage: UIImageView!
     @IBOutlet private weak var boardBrand: UILabel!
     @IBOutlet private weak var boardSerialNumber: UILabel!
@@ -39,6 +41,7 @@ class SearchTableViewCell: UITableViewCell {
         selectionStyle = .none
         foundButton.layer.cornerRadius = 8
     }
+    
     func setUp(acceptData:AcceptData){
         self.backgroundColor = .systemGray5
         
@@ -66,10 +69,12 @@ class SearchTableViewCell: UITableViewCell {
         }
     }
 
-//MARK: @IBAction
+// MARK: @IBAction
+    
     @IBAction private func tapFoundButton(_ sender: Any) {
         delegate?.didTapButton(indexPathNumber: (sender as AnyObject).tag)
     }
+    
     @IBAction private func copyButton(_ sender: Any) {
         UIPasteboard.general.string = boardSerialNumber.text
     }

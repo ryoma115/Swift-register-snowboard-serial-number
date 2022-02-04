@@ -6,13 +6,12 @@
 //
 
 import UIKit
-import Firebase
-import FirebaseFirestore
 import FirebaseAuth
 
 final class SettingViewController: UIViewController {
     
 // MARK: IBOutlet
+    
     @IBOutlet private weak var contactAddressTextField: UITextField! {
         didSet{
             contactAddressTextField.delegate = self
@@ -51,10 +50,12 @@ final class SettingViewController: UIViewController {
         super.viewDidLoad()
         navigationController?.setNavigationBarHidden(true, animated: false)
     }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         restrictLabel.text = ""
-        viewModel.loadContactAddress(searchWord: (Auth.auth().currentUser?.email)!)
+        guard let auth = Auth.auth().currentUser else { return }
+        viewModel.loadContactAddress(searchWord: auth.email ?? "")
         { result in
             if self.viewModel.addressData.count == 0{
                 self.currentAddressLabel.text = "現在、登録されていません"
@@ -63,18 +64,24 @@ final class SettingViewController: UIViewController {
             }
         }
     }
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
     
-//MARK: @IBAction
+// MARK: @IBAction
+    
     @IBAction private func settingButton(_ sender: Any) {
+        guard let auth = Auth.auth().currentUser  else { return }
         if contactAddressTextField.text == ""{
             restrictLabel.text = "連絡先が入力されていません"
         }else{
             viewModel.loadContactAddress(searchWord: (Auth.auth().currentUser?.email)!) {result in
                 if result == false{
-                    let getData = AcceptAdressData(contactAddress: self.contactAddressTextField.text!, userEmail:(Auth.auth().currentUser?.email)!)
+                    let getData = AcceptAdressData(
+                        contactAddress: self.contactAddressTextField.text ?? "",
+                        userEmail:auth.email ?? ""
+                    )
                     self.viewModel.sendAddress(getData)
                     self.restrictLabel.text = "登録が完了しました！"
                 } else {
@@ -89,16 +96,20 @@ final class SettingViewController: UIViewController {
     }
 }
 
-//MARK: UITextFieldDelegate
+// MARK: UITextFieldDelegate
+
 extension SettingViewController: UITextFieldDelegate {
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         contactAddressTextField.resignFirstResponder()
         return true
     }
 }
 
-//MARK: UITabBarDelegate
+// MARK: UITabBarDelegate
+
 extension SettingViewController: UITabBarDelegate {
+    
     func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
         UITabBar.appearance().tintColor = UIColor(red: 32, green: 206, blue: 210, alpha: 1.0)
         switch item.tag{

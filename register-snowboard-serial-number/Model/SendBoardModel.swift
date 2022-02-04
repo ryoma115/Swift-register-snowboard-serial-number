@@ -8,10 +8,10 @@
 import UIKit
 
 struct SendBoardModel {
-    let fullName:String
+    let fullName:String?
     let userID:String
     let userEmail:String
-    let boardBrand:String
-    let boardSerialNumber:String
-    let boardImage:Data
+    let boardBrand:String?
+    let boardSerialNumber:String?
+    let boardImage:Data?
 }

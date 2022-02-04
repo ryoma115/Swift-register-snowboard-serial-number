@@ -7,7 +7,6 @@
 
 import UIKit
 import GoogleSignIn
-import FirebaseAuth
 
 final class LoginViewController: UIViewController {
     
@@ -20,30 +19,44 @@ final class LoginViewController: UIViewController {
         GIDSignIn.sharedInstance()?.delegate = self
     }
     
-//MARK: @IBAction
+// MARK: @IBAction
+    
     @IBAction private func googleSignInButton(_ sender: Any) {
         viewModel.googleSignIn()
     }
 }
 
-//MARK: GIDSignInDelegate
+// MARK: GIDSignInDelegate
+
 extension LoginViewController: GIDSignInDelegate{
+    
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
         viewModel.signIn(signIn, didSignInFor: user, withError: error) { response in
             switch response {
             case .signInFailure:
                 print("signInFailure")
+                self.generaterSetUp(generaterType: .error)
             case .authNil:
                 print("authNil")
+                self.generaterSetUp(generaterType: .error)
             case .AuthSignInFailure:
                 print("AuthSignInFailure")
+                self.generaterSetUp(generaterType: .error)
             case .success:
                 print("Google SignIn Success!")
+                self.generaterSetUp(generaterType: .success)
                 let storyboard: UIStoryboard = UIStoryboard(name: "MyList", bundle: nil)
                 let viewController = storyboard.instantiateViewController(withIdentifier: "MyListViewController")
                 self.navigationController?.pushViewController(viewController, animated: true)
-                
             }
         }
     }
+}
+
+extension LoginViewController {
+    
+    func generaterSetUp(generaterType:UINotificationFeedbackGenerator.FeedbackType) {
+            let generater = UINotificationFeedbackGenerator()
+            generater.notificationOccurred(generaterType)
+        }
 }

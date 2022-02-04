@@ -6,11 +6,11 @@
 //
 
 import UIKit
-import FirebaseAuth
 
 final class SearchViewController: UIViewController {
     
 // MARK: IBOutlet
+    
     @IBOutlet private weak var searchText: UITextField! {
         didSet {
             searchText.delegate = self
@@ -45,11 +45,13 @@ final class SearchViewController: UIViewController {
         view.backgroundColor = .systemGray5
         
     }
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
     
-//MARK: @IBAction
+// MARK: @IBAction
+    
     @IBAction private func searchButton(_ sender: Any) {
         warningLabel.text = ""
         if searchText.text?.isEmpty == true{
@@ -71,8 +73,10 @@ final class SearchViewController: UIViewController {
     }
 }
 
-//MARK: UITableViewDelegate,UITableViewDataSource
+// MARK: UITableViewDelegate,UITableViewDataSource
+
 extension SearchViewController: UITableViewDelegate,UITableViewDataSource{
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! SearchTableViewCell
         let acceptData = viewModel.dataSets[indexPath.row]
@@ -83,16 +87,20 @@ extension SearchViewController: UITableViewDelegate,UITableViewDataSource{
         
         return cell
     }
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.dataSets.count
     }
 }
 
-//MARK: UITextFieldDelegate
+// MARK: UITextFieldDelegate
+
 extension SearchViewController: UITextFieldDelegate {
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         searchText.resignFirstResponder()
         searchButton((Any).self)
@@ -100,8 +108,10 @@ extension SearchViewController: UITextFieldDelegate {
     }
 }
 
-//MARK: SearchTableViewCellDelegate
+// MARK: SearchTableViewCellDelegate
+
 extension SearchViewController:SearchTableViewCellDelegate {
+    
     func didTapButton(indexPathNumber: Int) {
         viewModel.loadContactAddress(searchWord: viewModel.dataSets[indexPathNumber].userEmail) { response in
             switch response {
@@ -129,8 +139,10 @@ extension SearchViewController:SearchTableViewCellDelegate {
     }
 }
 
-//MARK: UITabBarDelegate
+// MARK: UITabBarDelegate
+
 extension SearchViewController: UITabBarDelegate {
+    
     func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
         switch item.tag{
         case 1:

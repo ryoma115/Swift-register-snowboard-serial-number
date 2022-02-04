@@ -39,7 +39,8 @@ final class MyListViewModel {
             completion(false)
         }
     }
-    func deleteDocument(documentID:String, completion: @escaping (Bool)-> ()){
+    
+    func deleteDocument(documentID:String, completion: @escaping (Bool)-> ()) {
         db.collection("snowboards").document(documentID).delete { error in
             if error != nil{
                 print("Error removing document: \(error.debugDescription)")
@@ -50,10 +51,12 @@ final class MyListViewModel {
             completion(false)
         }
     }
-    func changeTrue(documentID:String){
+    
+    func changeTrue(documentID:String) {
         db.collection("snowboards").document(documentID).updateData(["lost":true])
     }
-    func changeFalse(documentID:String){
+    
+    func changeFalse(documentID:String) {
         db.collection("snowboards").document(documentID).updateData(["lost":false])
     }
 }
