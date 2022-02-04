@@ -129,6 +129,7 @@
                         <outlet property="currentAddressLabel" destination="d7W-ib-Ade" id="8Au-en-X2F"/>
                         <outlet property="guideLabel" destination="bS3-bX-iW4" id="hzu-ul-B2S"/>
                         <outlet property="restrictLabel" destination="AQA-uP-KoU" id="ipw-nI-aVl"/>
+                        <outlet property="settingButton" destination="7km-OD-Vyf" id="0Aq-8i-gxJ"/>
                         <outlet property="tabBar" destination="cKs-3D-ZHo" id="Qyp-je-uQs"/>
                         <outlet property="warningLabel" destination="iXe-sy-Uvq" id="mWi-zw-dvG"/>
                     </connections>

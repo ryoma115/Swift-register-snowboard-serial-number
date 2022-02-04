@@ -10,14 +10,23 @@ import FirebaseAuth
 
 class SearchViewController: UIViewController {
     
-    let viewModel = SearchViewModel()
-    
-    @IBOutlet weak var tabBar: UITabBar! {
+// MARK: IBOutlet
+    @IBOutlet private var searchText: UITextField! {
+        didSet {
+            searchText.delegate = self
+        }
+    }
+    @IBOutlet weak var searchButton: UIButton! {
+        didSet{
+            searchButton.layer.cornerRadius = 4.0
+        }
+    }
+    @IBOutlet private var warningLabel: UILabel!
+    @IBOutlet private var tabBar: UITabBar! {
         didSet{
             tabBar.delegate = self
         }
     }
-    // MARK: IBOutlet
     @IBOutlet private var tableView: UITableView! {
         didSet {
             tableView.backgroundColor = .systemGray5
@@ -27,12 +36,8 @@ class SearchViewController: UIViewController {
             tableView.separatorStyle = .none
         }
     }
-    @IBOutlet private var searchText: UITextField! {
-        didSet {
-            searchText.delegate = self
-        }
-    }
-    @IBOutlet private var warningLabel: UILabel!
+    
+    private let viewModel = SearchViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,12 +45,12 @@ class SearchViewController: UIViewController {
         view.backgroundColor = .systemGray5
         
     }
-    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
     
-    @IBAction func searchButton(_ sender: Any) {
+//MARK: @IBAction
+    @IBAction private func searchButton(_ sender: Any) {
         warningLabel.text = ""
         if searchText.text?.isEmpty == true{
             warningLabel.text = "シリアルナンバーが入力されていません！"
@@ -78,7 +83,6 @@ extension SearchViewController: UITableViewDelegate,UITableViewDataSource{
         
         return cell
     }
-    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -125,6 +129,7 @@ extension SearchViewController:SearchTableViewCellDelegate {
     }
 }
 
+//MARK: UITabBarDelegate
 extension SearchViewController: UITabBarDelegate {
     func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
         switch item.tag{

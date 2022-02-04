@@ -89,6 +89,7 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="searchButton" destination="XQC-sL-FLt" id="Yn5-yd-pak"/>
                         <outlet property="searchText" destination="w2k-WZ-22A" id="AJP-CL-uSk"/>
                         <outlet property="tabBar" destination="c4s-hW-Muh" id="Gzg-ww-8Cg"/>
                         <outlet property="tableView" destination="4RT-aZ-HQl" id="1Iz-VR-RqF"/>

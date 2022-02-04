@@ -8,6 +8,7 @@
 import UIKit
 import SDWebImage
 
+//MARK: protocol
 protocol SearchTableViewCellDelegate:AnyObject {
     func didTapButton(indexPathNumber:Int)
 }
@@ -15,29 +16,29 @@ protocol SearchTableViewCellDelegate:AnyObject {
 class SearchTableViewCell: UITableViewCell {
     
     var delegate: SearchTableViewCellDelegate?
-    
-    @IBOutlet weak var boardImage: UIImageView!
-    @IBOutlet weak var boardBrand: UILabel!
-    @IBOutlet weak var boardSerialNumber: UILabel!
-    @IBOutlet weak var fullName: UILabel!
-    @IBOutlet weak var userID: UILabel!
-    @IBOutlet weak var dateID: UILabel!
-    @IBOutlet weak var shadowLayer: UIView!
+
+//MARK: @IBOutlet
+    @IBOutlet private var boardImage: UIImageView!
+    @IBOutlet private var boardBrand: UILabel!
+    @IBOutlet private var boardSerialNumber: UILabel!
+    @IBOutlet private var fullName: UILabel!
+    @IBOutlet private var userID: UILabel!
+    @IBOutlet private var dateID: UILabel!
+    @IBOutlet private var shadowLayer: UIView!
     @IBOutlet weak var foundButton: UIButton!
-    @IBOutlet weak var copyButton: UIButton!
+    @IBOutlet private var copyButton: UIButton!
     
-    @IBOutlet weak var firstUpView: UIView!
-    @IBOutlet weak var firstDownView: UIView!
-    @IBOutlet weak var secondUpView: UIView!
-    @IBOutlet weak var secondDownView: UIView!
-    @IBOutlet weak var topStackView: UIStackView!
+    @IBOutlet private var firstUpView: UIView!
+    @IBOutlet private var firstDownView: UIView!
+    @IBOutlet private var secondUpView: UIView!
+    @IBOutlet private var secondDownView: UIView!
+    @IBOutlet private var topStackView: UIStackView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         selectionStyle = .none
         foundButton.layer.cornerRadius = 8
     }
-    
     func setUp(acceptData:AcceptData){
         self.backgroundColor = .systemGray5
         
@@ -46,9 +47,6 @@ class SearchTableViewCell: UITableViewCell {
         self.shadowLayer.layer.shadowColor = UIColor.black.cgColor
         self.shadowLayer.layer.shadowOpacity = 0.6
         self.shadowLayer.layer.shadowRadius = 4
-        
-        self.shadowLayer.layer.borderWidth = 0.5
-        self.shadowLayer.layer.borderColor = UIColor(red: 32/255, green: 206/255, blue: 210/255, alpha: 1).cgColor
         
         self.firstUpView.backgroundColor = UIColor.systemGray6
         self.secondUpView.backgroundColor = UIColor.systemGray6
@@ -67,10 +65,12 @@ class SearchTableViewCell: UITableViewCell {
             foundButton.isHidden = true
         }
     }
-    @IBAction func tapFoundButton(_ sender: Any) {
+
+//MARK: @IBAction
+    @IBAction private func tapFoundButton(_ sender: Any) {
         delegate?.didTapButton(indexPathNumber: (sender as AnyObject).tag)
     }
-    @IBAction func copyButton(_ sender: Any) {
+    @IBAction private func copyButton(_ sender: Any) {
         UIPasteboard.general.string = boardSerialNumber.text
     }
 }

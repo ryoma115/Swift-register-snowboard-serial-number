@@ -7,6 +7,7 @@
 
 import UIKit
 
+//MARK: protocol
 protocol MyListTableViewCellDelegate: AnyObject {
     func didTapButton(indexPathNumber:Int)
 }
@@ -15,23 +16,24 @@ class MyListTableViewCell: UITableViewCell {
     
     var delegate:MyListTableViewCellDelegate?
     
-    @IBOutlet weak var boardImage: UIImageView!
-    @IBOutlet weak var boardBrand: UILabel!
-    @IBOutlet weak var boardSerialNumber: UILabel!
-    @IBOutlet weak var fullName: UILabel!
-    @IBOutlet weak var userID: UILabel!
-    @IBOutlet weak var dateID: UILabel!
-    @IBOutlet weak var shadowLayer: UIView!
-    @IBOutlet weak var lostSwitch: UISwitch!
-    @IBOutlet weak var lostLabel: UILabel!
-    @IBOutlet weak var copyButton: UIButton!
+//MARK: @IBOutlet
+    @IBOutlet private var boardImage: UIImageView!
     @IBOutlet weak var deleteButton: UIButton!
+    @IBOutlet private var lostLabel: UILabel!
+    @IBOutlet weak var lostSwitch: UISwitch!
+    @IBOutlet private var boardBrand: UILabel!
+    @IBOutlet private var boardSerialNumber: UILabel!
+    @IBOutlet private var copyButton: UIButton!
+    @IBOutlet private var fullName: UILabel!
+    @IBOutlet private var userID: UILabel!
+    @IBOutlet private var dateID: UILabel!
     
-    @IBOutlet weak var firstUpView: UIView!
-    @IBOutlet weak var firstDownView: UIView!
-    @IBOutlet weak var secondUpView: UIView!
-    @IBOutlet weak var secondDownView: UIView!
-    @IBOutlet weak var topStackView: UIStackView!
+    @IBOutlet private var shadowLayer: UIView!
+    @IBOutlet private var firstUpView: UIView!
+    @IBOutlet private var firstDownView: UIView!
+    @IBOutlet private var secondUpView: UIView!
+    @IBOutlet private var secondDownView: UIView!
+    @IBOutlet private var topStackView: UIStackView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -55,9 +57,6 @@ class MyListTableViewCell: UITableViewCell {
         self.shadowLayer.layer.shadowOpacity = 0.6
         self.shadowLayer.layer.shadowRadius = 4
         
-        self.shadowLayer.layer.borderWidth = 0.5
-        self.shadowLayer.layer.borderColor = UIColor(red: 32/255, green: 206/255, blue: 210/255, alpha: 1).cgColor
-        
         self.firstUpView.backgroundColor = UIColor.systemGray6
         self.secondUpView.backgroundColor = UIColor.systemGray6
         self.topStackView.layer.borderWidth = 1.0
@@ -65,6 +64,8 @@ class MyListTableViewCell: UITableViewCell {
         self.topStackView.layer.cornerRadius = 10.0
         
     }
+    
+//MARK: @IBAction
     @IBAction func copyButton(_ sender: Any) {
         UIPasteboard.general.string = self.boardSerialNumber.text
     }

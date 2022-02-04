@@ -10,7 +10,6 @@ import GoogleSignIn
 import FirebaseAuth
 
 final class LoginViewModel{
-    let loadDB = LoadDBModel()
     
     enum SignInResponse {
         case signInFailure
@@ -22,7 +21,6 @@ final class LoginViewModel{
     func googleSignIn(){
         GIDSignIn.sharedInstance().signIn()
     }
-
     func signIn(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!, completion: @escaping (SignInResponse)-> ()) {
         let auth = user.authentication
         if auth == nil {

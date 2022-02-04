@@ -102,6 +102,7 @@
                     <navigationItem key="navigationItem" id="Ttl-lz-npo"/>
                     <connections>
                         <outlet property="SerialNumberTextField" destination="MIh-2F-vcm" id="P9I-Nh-5HY"/>
+                        <outlet property="addButton" destination="soW-bn-vTy" id="pGP-5H-lRx"/>
                         <outlet property="boadBrandTextField" destination="84o-cc-NYB" id="Z0E-iL-QdH"/>
                         <outlet property="boardImage" destination="9qz-JJ-tEy" id="Vp4-wr-Et2"/>
                         <outlet property="nameTextField" destination="89p-Oc-Uxp" id="oOw-ls-1PB"/>

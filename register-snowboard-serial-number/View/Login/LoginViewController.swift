@@ -11,7 +11,7 @@ import FirebaseAuth
 
 class LoginViewController: UIViewController {
     
-    let viewModel = LoginViewModel()
+    private let viewModel = LoginViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,6 +20,7 @@ class LoginViewController: UIViewController {
         GIDSignIn.sharedInstance()?.delegate = self
     }
     
+//MARK: @IBAction
     @IBAction func googleSignInButton(_ sender: Any) {
         viewModel.googleSignIn()
     }

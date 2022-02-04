@@ -10,11 +10,12 @@ import FirebaseAuth
 
 class AddViewController: UIViewController {
 
-    let viewModel = AddViewModel()
-
 //MARK: IBOutlet
-
-    @IBOutlet private var boardImage: UIImageView!
+    @IBOutlet private var boardImage: UIImageView! {
+        didSet{
+            boardImage.image = UIImage(named: "no-image")
+        }
+    }
     @IBOutlet private var nameTextField: UITextField! {
         didSet{
             nameTextField.delegate = self
@@ -30,22 +31,34 @@ class AddViewController: UIViewController {
             SerialNumberTextField.delegate = self
         }
     }
+    @IBOutlet private var addButton: UIButton! {
+        didSet{
+            addButton.layer.cornerRadius = 10.0
+        }
+    }
     @IBOutlet private var warningLabel: UILabel!
     @IBOutlet private var tabBar: UITabBar! {
         didSet{
             tabBar.delegate = self
         }
     }
+    
+    private let viewModel = AddViewModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel.showCheckPermission()
-        boardImage.image = UIImage(named: "no-image")
         navigationController?.setNavigationBarHidden(true, animated: false)
     }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
-    @IBAction func tapAddButton(_ sender: Any) {
+    
+//MARK: @IBAction
+    @IBAction private func tapImage(_ sender: Any) {
+        showCameraAlert()
+    }
+    @IBAction private func tapAddButton(_ sender: Any) {
         warningLabel.text = ""
         if nameTextField.text == "" || boadBrandTextField.text == "" || SerialNumberTextField.text == ""{
             warningLabel.text = "＊入力欄に誤りがあります"
@@ -88,9 +101,7 @@ class AddViewController: UIViewController {
             
         }
     }
-    @IBAction func tapImage(_ sender: Any) {
-        showCameraAlert()
-    }
+    
     func showCameraAlert(){
         let alertController = UIAlertController(title: "選択", message: "どちらを使用しますか?", preferredStyle: .actionSheet)
         let addCameraAction = UIAlertAction(title: "カメラ", style: .default) { result in
@@ -125,6 +136,7 @@ class AddViewController: UIViewController {
     }
 }
 
+//MARK: UIImagePickerControllerDelegate,UINavigationControllerDelegate
 extension AddViewController: UIImagePickerControllerDelegate,UINavigationControllerDelegate{
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         let selectedImage = info[.originalImage] as! UIImage
@@ -136,6 +148,7 @@ extension AddViewController: UIImagePickerControllerDelegate,UINavigationControl
     }
 }
 
+//MARK: UITextFieldDelegate
 extension AddViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         nameTextField.resignFirstResponder()
@@ -144,6 +157,8 @@ extension AddViewController: UITextFieldDelegate {
         return true
     }
 }
+
+//MARK: UITabBarDelegate
 extension AddViewController: UITabBarDelegate {
     func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
         switch item.tag{

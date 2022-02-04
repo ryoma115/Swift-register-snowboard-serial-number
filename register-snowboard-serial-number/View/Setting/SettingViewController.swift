@@ -12,33 +12,44 @@ import FirebaseAuth
 
 class SettingViewController: UIViewController {
     
-    let db = Firestore.firestore()
-    let viewModel = SettingViewModel()
-    let loadDB = LoadDBModel()
-    
 // MARK: IBOutlet
-    
-    @IBOutlet weak var tabBar: UITabBar!{
-        didSet{
-            tabBar.delegate = self
-        }
-    }
     @IBOutlet private var contactAddressTextField: UITextField! {
         didSet{
             contactAddressTextField.delegate = self
         }
     }
-    @IBOutlet weak var guideLabel: UILabel!
-    @IBOutlet weak var warningLabel: UILabel!
-    @IBOutlet weak var currentAddressLabel: UILabel!
-    @IBOutlet weak var restrictLabel: UILabel!
+    @IBOutlet private var guideLabel: UILabel! {
+        didSet{
+            guideLabel.text = "現在の連絡先"
+        }
+    }
+    @IBOutlet private var warningLabel: UILabel! {
+        didSet{
+            warningLabel.text = "(反映に時間がかかる場合があります)"
+        }
+    }
+    @IBOutlet private var currentAddressLabel: UILabel!
+    @IBOutlet private var restrictLabel: UILabel! {
+        didSet{
+            restrictLabel.text = "*こちらはボードの紛失ボタンがONの状態で、\n発見ボタンが押された時のみ使用されます。\n(登録することを推奨します)"
+        }
+    }
+    @IBOutlet private var settingButton: UIButton! {
+        didSet{
+            settingButton.layer.cornerRadius = 10.0
+        }
+    }
+    @IBOutlet private var tabBar: UITabBar!{
+        didSet{
+            tabBar.delegate = self
+        }
+    }
+    
+    private let viewModel = SettingViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.setNavigationBarHidden(true, animated: false)
-        guideLabel.text = "現在の連絡先"
-        warningLabel.text = "(反映に時間がかかる場合があります)"
-        restrictLabel.text = "*こちらはボードの紛失ボタンがONの状態で、\n発見ボタンが押された時のみ使用されます。\n(登録することを推奨します)"
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -55,6 +66,8 @@ class SettingViewController: UIViewController {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
+    
+//MARK: @IBAction
     @IBAction private func settingButton(_ sender: Any) {
         if contactAddressTextField.text == ""{
             restrictLabel.text = "連絡先が入力されていません"
@@ -84,6 +97,7 @@ extension SettingViewController: UITextFieldDelegate {
     }
 }
 
+//MARK: UITabBarDelegate
 extension SettingViewController: UITabBarDelegate {
     func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
         UITabBar.appearance().tintColor = UIColor(red: 32, green: 206, blue: 210, alpha: 1.0)

@@ -10,15 +10,8 @@ import FirebaseAuth
 import SDWebImage
 
 class MyListViewController: UIViewController {
-
-    let viewModel = MyListViewModel()
     
 // MARK: IBOutlet
-    @IBOutlet weak var tabBar: UITabBar! {
-        didSet{
-            tabBar.delegate = self
-        }
-    }
     @IBOutlet private var tableView: UITableView! {
         didSet {
             tableView.dataSource = self
@@ -28,6 +21,13 @@ class MyListViewController: UIViewController {
             tableView.backgroundColor = .systemGray5
         }
     }
+    @IBOutlet private var tabBar: UITabBar! {
+        didSet{
+            tabBar.delegate = self
+        }
+    }
+    
+    private let viewModel = MyListViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -99,6 +99,8 @@ extension MyListViewController: MyListTableViewCellDelegate {
         self.present(alert, animated: true, completion: nil)
     }
 }
+
+//MARK: UITabBarDelegate
 extension MyListViewController: UITabBarDelegate {
     func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
         switch item.tag{
