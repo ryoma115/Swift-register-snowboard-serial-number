@@ -17,21 +17,24 @@ final class AddViewController: UIViewController {
             boardImage.image = UIImage(named: "no-image")
         }
     }
-    @IBOutlet private weak var nameTextField: UITextField! {
+    
+    @IBOutlet weak var nameTextField: UITextField! {
         didSet{
             nameTextField.delegate = self
         }
     }
-    @IBOutlet private weak var boardBrandTextField: UITextField! {
+    @IBOutlet weak var boardBrandTextField: UITextField! {
         didSet{
             boardBrandTextField.delegate = self
         }
     }
-    @IBOutlet private weak var serialNumberTextField: UITextField! {
+    
+    @IBOutlet weak var serialNumberTextField: UITextField! {
         didSet{
             serialNumberTextField.delegate = self
         }
     }
+    
     @IBOutlet private weak var addButton: UIButton! {
         didSet{
             addButton.layer.cornerRadius = 10.0
@@ -71,27 +74,25 @@ final class AddViewController: UIViewController {
             warningLabel.text = "＊入力欄に誤りがあります"
             generaterSetUp(generaterType: .error)
         }else{
-            viewModel.searchMatch(boardBrand: boardText ?? "", boardSerialNumber: serialNumberText ?? "") { error  in
-                guard error != false else { self.warningLabel.text = "読み込みに失敗しました"; return }
-                if self.viewModel.documentMatches.count == 0 {
-                    guard let auth = Auth.auth().currentUser  else { return }
-                    let boardImageData = (self.boardImage.image?.jpegData(compressionQuality: 0.25))
-                    let sendData = SendBoardModel(
-                        fullName: nameText,
-                        userID: auth.uid,
-                        userEmail: auth.email ?? "",
-                        boardBrand: boardText,
-                        boardSerialNumber: serialNumberText,
-                        boardImage: boardImageData!
-                    )
-                    self.viewModel.sendDB(sendData: sendData) { error in
-                        if error == false {
-                            self.setUpClose()
-                        }
+            viewModel.searchMatch(boardBrand: boardText ?? "", boardSerialNumber: serialNumberText ?? "")
+            if self.viewModel.documentMatches.count == 0 {
+                guard let auth = Auth.auth().currentUser  else { return }
+                let boardImageData = (self.boardImage.image?.jpegData(compressionQuality: 0.25))
+                let sendData = SendBoardModel(
+                    fullName: nameText,
+                    userID: auth.uid,
+                    userEmail: auth.email ?? "",
+                    boardBrand: boardText,
+                    boardSerialNumber: serialNumberText,
+                    boardImage: boardImageData!
+                )
+                self.viewModel.sendDB(sendData: sendData) { error in
+                    if error == false {
+                        self.setUpClose()
                     }
-                } else {
-                    self.warningLabel.text = "既にこの製品は登録されています"
                 }
+            } else {
+                self.warningLabel.text = "既にこの製品は登録されています"
             }
         }
     }

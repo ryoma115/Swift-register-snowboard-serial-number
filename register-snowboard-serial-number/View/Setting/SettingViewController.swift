@@ -38,6 +38,11 @@ final class SettingViewController: UIViewController {
             settingButton.layer.cornerRadius = 10.0
         }
     }
+    @IBOutlet private weak var signOutButton: UIButton! {
+        didSet{
+            signOutButton.layer.cornerRadius = 10.0
+        }
+    }
     @IBOutlet private weak var tabBar: UITabBar!{
         didSet{
             tabBar.delegate = self
@@ -94,8 +99,18 @@ final class SettingViewController: UIViewController {
             }
         }
     }
+    @IBAction func signOutButton(_ sender: Any) {
+        viewModel.signOut() { error in
+            if error != false{
+                self.restrictLabel.text = "ログアウトに失敗しました。"
+            } else {
+                let storyboard: UIStoryboard = UIStoryboard(name: "Login", bundle: nil)
+                let viewController = storyboard.instantiateViewController(withIdentifier: "LoginViewController")
+                self.navigationController?.pushViewController(viewController, animated: true)
+            }
+        }
+    }
 }
-
 // MARK: UITextFieldDelegate
 
 extension SettingViewController: UITextFieldDelegate {

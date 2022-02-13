@@ -32,18 +32,16 @@ final class AddViewModel {
             }
         }
     }
-    func searchMatch(boardBrand:String,boardSerialNumber:String, completion: @escaping (Bool)-> ()){
+    func searchMatch(boardBrand:String,boardSerialNumber:String) {
         documentMatches = []
         db.collection("snowboards").whereField("boardBrand", isEqualTo: boardBrand).whereField("boardSerialNumber", isEqualTo: boardSerialNumber).getDocuments { querySnapshot, error in
             if error != nil{
                 print(error.debugDescription)
-                completion(true)
                 return
             }
             for document in querySnapshot!.documents{
                 self.documentMatches.append(document.documentID)
             }
-            completion(false)
         }
     }
     func sendDB(sendData:SendBoardModel,completion: @escaping (Bool)-> ()){
@@ -59,7 +57,7 @@ final class AddViewModel {
                 if error != nil{
                     print("SendDBModel downloadURL error")
                 }
-                self.db.collection("snowboards").document().setData(["fullName":sendData.fullName as Any,"userID":sendData.userID,"userEmail":sendData.userEmail,"boardBrand":sendData.boardBrand as Any,"boardSerialNumber":sendData.boardSerialNumber,"boardImageUrl":url?.absoluteString as Any,"postDate":Date().timeIntervalSince1970,"lost": false])
+                self.db.collection("snowboards").document().setData(["fullName":sendData.fullName as Any,"userID":sendData.userID,"userEmail":sendData.userEmail,"boardBrand":sendData.boardBrand as Any,"boardSerialNumber":sendData.boardSerialNumber as Any,"boardImageUrl":url?.absoluteString as Any,"postDate":Date().timeIntervalSince1970,"lost": false])
             }
         }
         completion(false)

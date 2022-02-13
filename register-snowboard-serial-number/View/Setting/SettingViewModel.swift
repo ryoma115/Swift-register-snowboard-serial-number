@@ -7,6 +7,7 @@
 
 import UIKit
 import FirebaseFirestore
+import FirebaseAuth
 
 final class SettingViewModel {
     
@@ -41,5 +42,15 @@ final class SettingViewModel {
     
     func updateAddress(documentID:String,chageAddress:String){
         db.collection("contactAddresses").document(documentID).updateData(["contactAddress":chageAddress])
+    }
+    
+    func signOut(completion: @escaping (Bool) -> ()) {
+        do {
+            try Auth.auth().signOut()
+        } catch let signOutError as NSError {
+            print("Error signing out", signOutError)
+            completion(true)
+        }
+        completion(false)
     }
 }

@@ -105,6 +105,22 @@
                                     <tabBarItem tag="4" title="設定" image="wrench.fill" catalog="system" id="KNz-Eu-WcO"/>
                                 </items>
                             </tabBar>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YAn-fp-NzS">
+                                <rect key="frame" x="100" y="567" width="214" height="44"/>
+                                <color key="backgroundColor" red="0.12549019610000001" green="0.80784313730000001" blue="0.82352941180000006" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="vgk-gn-sbR"/>
+                                </constraints>
+                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="ログアウト">
+                                    <color key="baseBackgroundColor" red="0.8666666666666667" green="0.31764705882352939" blue="0.26666666666666666" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="settingButton:" destination="ekJ-9I-EtN" eventType="touchUpInside" id="l1f-Df-Y5t"/>
+                                    <action selector="signOutButton:" destination="ekJ-9I-EtN" eventType="touchUpInside" id="LVa-1b-77R"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="fqv-AO-c0T"/>
                         <color key="backgroundColor" systemColor="systemGray6Color"/>
@@ -118,7 +134,10 @@
                             <constraint firstItem="cKs-3D-ZHo" firstAttribute="leading" secondItem="fqv-AO-c0T" secondAttribute="leading" id="e93-Kt-918"/>
                             <constraint firstAttribute="trailing" secondItem="cKs-3D-ZHo" secondAttribute="trailing" id="gln-D0-axg"/>
                             <constraint firstItem="fqv-AO-c0T" firstAttribute="bottom" secondItem="cKs-3D-ZHo" secondAttribute="bottom" id="hLs-FS-dgw"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="YAn-fp-NzS" secondAttribute="trailing" constant="80" id="iPB-Wv-6qc"/>
+                            <constraint firstItem="YAn-fp-NzS" firstAttribute="top" secondItem="9TS-lM-4hO" secondAttribute="bottom" constant="40" id="oHH-Mh-j1p"/>
                             <constraint firstItem="fqv-AO-c0T" firstAttribute="trailing" secondItem="mbz-Ei-V6a" secondAttribute="trailing" constant="20" id="pB3-lk-GMR"/>
+                            <constraint firstItem="YAn-fp-NzS" firstAttribute="leading" secondItem="oO0-Iw-CL1" secondAttribute="leadingMargin" constant="80" id="ych-mc-2ew"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="qEJ-S3-Mj1"/>
@@ -130,6 +149,7 @@
                         <outlet property="guideLabel" destination="bS3-bX-iW4" id="hzu-ul-B2S"/>
                         <outlet property="restrictLabel" destination="AQA-uP-KoU" id="ipw-nI-aVl"/>
                         <outlet property="settingButton" destination="7km-OD-Vyf" id="0Aq-8i-gxJ"/>
+                        <outlet property="signOutButton" destination="YAn-fp-NzS" id="r6h-TV-lAG"/>
                         <outlet property="tabBar" destination="cKs-3D-ZHo" id="Qyp-je-uQs"/>
                         <outlet property="warningLabel" destination="iXe-sy-Uvq" id="mWi-zw-dvG"/>
                     </connections>

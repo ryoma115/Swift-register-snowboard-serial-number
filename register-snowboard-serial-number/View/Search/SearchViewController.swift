@@ -69,7 +69,6 @@ final class SearchViewController: UIViewController {
                 }
             }
         }
-        searchText.text = ""
     }
 }
 
