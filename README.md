@@ -1,6 +1,6 @@
 
-*現在私は19歳でまだapple developer programに登録できないため,appstoreにデプロイできない状態です。
-(デプロイできた時点でURLを追加します。それまでは動画でお許しください。)
+*現在私は19歳でまだapple developer programに登録できないため,appstoreにデプロイできない状態です。  
+(デプロイできた時点でURLを追加します。それまでは動画でお許しください。)  
 https://user-images.githubusercontent.com/85725614/154922482-a80d3c23-54c1-4e85-84ba-4db1f4262a77.mov
 
 
