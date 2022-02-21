@@ -32,6 +32,11 @@ final class SearchViewModel {
             if self.dataSets.count == 0 {
                 completion(.notFound)
             } else {
+                for (index, data) in self.dataSets.enumerated() {
+                    if data.lost != true {
+                        self.dataSets.remove(at: index)
+                    }
+                }
                 completion(.Found)
             }
         }
